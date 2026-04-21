@@ -247,6 +247,65 @@
   .app-card-preview img.loaded + .app-card-preview-skeleton,
   .app-card-preview-skeleton.hidden { display: none; }
   @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* ── COMING SOON / COOKING PREVIEW ── */
+  .app-card-cooking {
+    position: relative; width: 100%; height: 180px;
+    margin-bottom: 1.75rem;
+    border: 1px solid rgba(240,165,0,0.12);
+    background: rgba(10,10,8,0.6);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.75rem; overflow: hidden;
+  }
+  /* animated amber scan line */
+  .app-card-cooking::before {
+    content: '';
+    position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(240,165,0,0.04), transparent);
+    animation: cooking-scan 2.4s ease-in-out infinite;
+  }
+  @keyframes cooking-scan {
+    0%   { left: -60%; }
+    100% { left: 160%; }
+  }
+  .cooking-icon {
+    font-size: 1.6rem; line-height: 1;
+    animation: cooking-bounce 1.6s ease-in-out infinite;
+    filter: grayscale(0.3);
+  }
+  @keyframes cooking-bounce {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    30%       { transform: translateY(-5px) rotate(4deg); }
+    60%       { transform: translateY(-2px) rotate(-2deg); }
+  }
+  .cooking-dots {
+    display: flex; gap: 5px; align-items: center;
+  }
+  .cooking-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--amber); opacity: 0.4;
+    animation: cooking-dot-pulse 1.2s ease-in-out infinite;
+  }
+  .cooking-dot:nth-child(2) { animation-delay: 0.2s; }
+  .cooking-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes cooking-dot-pulse {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50%       { opacity: 1;   transform: scale(1.2); }
+  }
+  .cooking-label {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(240,165,0,0.5);
+  }
+  /* corner tick marks */
+  .cooking-corner {
+    position: absolute; width: 10px; height: 10px;
+    border-color: rgba(240,165,0,0.25); border-style: solid;
+  }
+  .cooking-corner.tl { top: 8px;  left: 8px;  border-width: 1px 0 0 1px; }
+  .cooking-corner.tr { top: 8px;  right: 8px; border-width: 1px 1px 0 0; }
+  .cooking-corner.bl { bottom: 8px; left: 8px;  border-width: 0 0 1px 1px; }
+  .cooking-corner.br { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
   /* autoscroll carousel popup */
   .app-preview-popup {
     position: fixed; z-index: 500; pointer-events: all;
@@ -1273,6 +1332,10 @@ function renderApps() {
     if (app.preview === 'gac') {
       previewHTML = `
         <div class="gac-preview">
+          <div class="cooking-corner tl"></div>
+          <div class="cooking-corner tr"></div>
+          <div class="cooking-corner bl"></div>
+          <div class="cooking-corner br"></div>
           <div class="gac-preview-row">
             <div class="gac-cell header">Customer</div>
             <div class="gac-cell header">Vehicle</div>
@@ -1317,6 +1380,30 @@ function renderApps() {
           <img src="${imgSrc}" alt="${app.name} preview"
             onload="this.classList.add('loaded');if(this.nextElementSibling)this.nextElementSibling.classList.add('hidden')" />
           <div class="app-card-preview-skeleton"></div>
+        </div>`;
+      } else {
+        // No preview image — show cooking animation
+        const cookingVariants = [
+          { icon: '⚗️', label: 'Brewing something good' },
+          { icon: '🔧', label: 'Under construction' },
+          { icon: '🚀', label: 'Launch incoming' },
+          { icon: '⚡', label: 'Cooking up a preview' },
+          { icon: '🎯', label: 'Screenshot pending' },
+        ];
+        const v = cookingVariants[Math.floor(Math.random() * cookingVariants.length)];
+        previewHTML = `
+        <div class="app-card-cooking">
+          <div class="cooking-corner tl"></div>
+          <div class="cooking-corner tr"></div>
+          <div class="cooking-corner bl"></div>
+          <div class="cooking-corner br"></div>
+          <div class="cooking-icon">${v.icon}</div>
+          <div class="cooking-dots">
+            <div class="cooking-dot"></div>
+            <div class="cooking-dot"></div>
+            <div class="cooking-dot"></div>
+          </div>
+          <div class="cooking-label">${v.label}</div>
         </div>`;
       }
     }
