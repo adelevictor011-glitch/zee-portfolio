@@ -1143,45 +1143,67 @@
   <div class="footer-right">Built with <a href="#">Anthropic Claude</a> · Deployed on Vercel</div>
 </footer>
 
-<!-- ADMIN PANEL -->
 <!-- CONTACT MODAL -->
 <div class="modal-backdrop" id="contact-modal">
   <div class="modal-box">
+
     <div id="contact-form-wrap">
       <div class="modal-title">Let's <em>talk.</em></div>
       <p class="modal-sub">Tell me a bit about what you're thinking. I'll get back to you within 24 hours — usually faster.</p>
-      <div class="modal-row">
-        <div class="modal-field">
-          <label>Your Name</label>
-          <input type="text" id="cf-name" placeholder="What do people call you?" />
+
+      <!-- Formspree form-level error -->
+      <div data-fs-error style="display:none; font-family:var(--mono); font-size:0.72rem;
+        color:#ff5f57; margin-bottom:1rem; letter-spacing:0.06em; padding:0.5rem 0;
+        border-bottom:1px solid rgba(255,95,87,0.2);"></div>
+
+      <form id="contact-form" novalidate>
+        <input type="hidden" name="_subject" value="New message from your portfolio" />
+        <input type="hidden" name="_replyto" value="" id="hidden-reply" />
+
+        <div class="modal-row">
+          <div class="modal-field">
+            <label>Your Name</label>
+            <input type="text" name="name" id="cf-name" data-fs-field
+              placeholder="What do people call you?" autocomplete="off" />
+            <span data-fs-error="name" style="font-family:var(--mono);font-size:0.67rem;
+              color:#ff5f57;letter-spacing:0.05em;margin-top:0.25rem;display:block;"></span>
+          </div>
+          <div class="modal-field">
+            <label>Email</label>
+            <input type="email" name="email" id="cf-email" data-fs-field
+              placeholder="So I can reply" autocomplete="off" />
+            <span data-fs-error="email" style="font-family:var(--mono);font-size:0.67rem;
+              color:#ff5f57;letter-spacing:0.05em;margin-top:0.25rem;display:block;"></span>
+          </div>
         </div>
         <div class="modal-field">
-          <label>Email</label>
-          <input type="email" id="cf-email" placeholder="So I can reply" />
+          <label>What's this about?</label>
+          <select name="type" id="cf-type" data-fs-field>
+            <option value="">Pick the closest one</option>
+            <option value="I want to build something with you">I want to build something with you</option>
+            <option value="I'd like to test one of your apps">I'd like to test one of your apps</option>
+            <option value="I'm an investor, let's talk">I'm an investor, let's talk</option>
+            <option value="I have a project that needs your skills">I have a project that needs your skills</option>
+            <option value="I just have a good idea and nowhere to take it">I just have a good idea and nowhere to take it</option>
+            <option value="Something else entirely">Something else entirely</option>
+          </select>
         </div>
-      </div>
-      <div class="modal-field">
-        <label>What's this about?</label>
-        <select id="cf-type">
-          <option value="">Pick the closest one</option>
-          <option value="partnership">I want to build something with you</option>
-          <option value="testing">I'd like to test one of your apps</option>
-          <option value="investor">I'm an investor, let's talk</option>
-          <option value="contract">I have a project that needs your skills</option>
-          <option value="idea">I just have a good idea and nowhere to take it</option>
-          <option value="other">Something else entirely</option>
-        </select>
-      </div>
-      <div class="modal-field">
-        <label>Tell me more</label>
-        <textarea id="cf-message" placeholder="Don't overthink it. Even a rough thought is fine."></textarea>
-      </div>
-      <div class="modal-actions">
-        <button class="modal-submit" id="cf-submit" onclick="submitContactForm()">Send it →</button>
-        <button class="modal-cancel" onclick="closeContactModal()">Maybe later</button>
-      </div>
+        <div class="modal-field">
+          <label>Tell me more</label>
+          <textarea name="message" id="cf-message" data-fs-field
+            placeholder="Don't overthink it. Even a rough thought is fine."></textarea>
+          <span data-fs-error="message" style="font-family:var(--mono);font-size:0.67rem;
+            color:#ff5f57;letter-spacing:0.05em;margin-top:0.25rem;display:block;"></span>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="modal-submit" id="cf-submit" data-fs-submit-btn>Send it →</button>
+          <button type="button" class="modal-cancel" onclick="closeContactModal()">Maybe later</button>
+        </div>
+      </form>
     </div>
-    <div class="modal-success" id="contact-success">
+
+    <!-- Success screen — shown by Formspree after submission -->
+    <div data-fs-success class="modal-success" style="display:none; text-align:center; padding:1rem 0;">
       <div class="modal-success-icon">✦</div>
       <div class="modal-success-title">Message sent!</div>
       <p class="modal-success-body">I'll be in your inbox soon. In the meantime, feel free to look around.</p>
@@ -1189,8 +1211,23 @@
         <button class="modal-cancel" style="color:var(--amber);" onclick="closeContactModal()">Close</button>
       </div>
     </div>
+
   </div>
 </div>
+
+<!-- Formspree Ajax CDN — initialised after DOM is ready -->
+<script>
+  window.formspree = window.formspree || function() { (formspree.q = formspree.q || []).push(arguments); };
+  // Mirror email into _replyto so you can reply directly from your inbox
+  document.getElementById('cf-email').addEventListener('input', function() {
+    document.getElementById('hidden-reply').value = this.value;
+  });
+  formspree('initForm', {
+    formElement: '#contact-form',
+    formId: 'xjgjabwv'
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <!-- PASSWORD MODAL -->
 <div class="modal-backdrop" id="password-modal">
@@ -1574,63 +1611,17 @@ function openContactModal() {
 function closeContactModal() {
   document.getElementById('contact-modal').classList.remove('open');
   setTimeout(() => {
-    document.getElementById('contact-form-wrap').style.display = '';
-    document.getElementById('contact-success').style.display = 'none';
-    ['cf-name','cf-email','cf-message'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('cf-type').value = '';
-    const btn = document.getElementById('cf-submit');
-    btn.disabled = false; btn.textContent = 'Send it →';
+    const form = document.getElementById('contact-form');
+    if (form) form.reset();
   }, 400);
 }
-// ── CONTACT: paste your Formspree endpoint here ──────────────────────────────
-// 1. formspree.io → sign up → New Form → copy endpoint URL
-// 2. Replace the string below e.g. 'https://formspree.io/f/xyzabcde'
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgjabwv';
-
-function submitContactForm() {
-  const name    = document.getElementById('cf-name').value.trim();
-  const email   = document.getElementById('cf-email').value.trim();
-  const type    = document.getElementById('cf-type').value;
-  const message = document.getElementById('cf-message').value.trim();
-  if (!name || !email || !message) {
-    alert("Fill in your name, email and message and we're good 👍");
-    return;
-  }
-  const btn = document.getElementById('cf-submit');
-  btn.disabled = true; btn.textContent = 'Sending...';
-  const labels = { partnership:'Build together', testing:'App testing',
-    investor:'Investor', contract:'Contract work', idea:'Got an idea', other:'Other' };
-
-  if (!FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes('PASTE_YOUR')) {
-    // fallback to mailto until Formspree is configured
-    const subject = encodeURIComponent('[Portfolio] ' + (labels[type]||'New message') + ' — ' + name);
-    const body    = encodeURIComponent('Hi Zee,\n\nName: ' + name + '\nEmail: ' + email + '\nType: ' + (labels[type]||type) + '\n\n' + message + '\n\n---\nSent from your portfolio.');
-    window.open('mailto:madebyyouni@gmail.com?subject=' + subject + '&body=' + body, '_blank');
-    document.getElementById('contact-form-wrap').style.display = 'none';
-    document.getElementById('contact-success').style.display = 'block';
-    return;
-  }
-
-  fetch(FORMSPREE_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({ name, email, message, type: labels[type]||type,
-      _subject: '[Portfolio] ' + (labels[type]||'New message') + ' — ' + name })
-  }).then(res => {
-    if (res.ok) {
-      document.getElementById('contact-form-wrap').style.display = 'none';
-      document.getElementById('contact-success').style.display = 'block';
-    } else { throw new Error(); }
-  }).catch(() => {
-    btn.disabled = false; btn.textContent = 'Send it →';
-    alert('Something went wrong — please email madebyyouni@gmail.com directly.');
-  });
-}
-document.getElementById('contact-modal').addEventListener('click', function(e) { if (e.target===this) closeContactModal(); });
+document.getElementById('contact-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeContactModal();
+});
 
 // ── GOOGLE AUTH (silent — no UI, just checks signed-in email) ──────────────
 const ALLOWED_EMAILS = ['madebyyouni@gmail.com', 'adelevictor011@gmail.com'];
-const GOOGLE_CLIENT_ID = '248175781981-3l1drqe6bbo6kpljnd1boru7lokopk8f.apps.googleusercontent.com';
+const GOOGLE_CLIENT_ID = 'PASTE_YOUR_GOOGLE_CLIENT_ID_HERE';
 
 let adminUnlocked = false;
 let pendingOpen   = false;
