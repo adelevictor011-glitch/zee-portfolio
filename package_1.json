@@ -1,0 +1,9 @@
+{
+  "name": "zee-portfolio",
+  "version": "1.0.0",
+  "description": "Zee — personal portfolio. Built with vanilla HTML/CSS/JS. Deployed on Vercel.",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  }
+}
