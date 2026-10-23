@@ -2385,265 +2385,6 @@ Be concise. Infer missing fields intelligently from context. For status, pick fr
         if (!newApp.url) newApp.url = '#';
         APPS.push(newApp);
         saveApps(); 
-// ── ZEENG POINTS SYSTEM ──────────────────────────────────────────────────────
-const ZEENG = {
-  points: 0,
-  completed: {},
-
-  load() {
-    try {
-      const d = JSON.parse(localStorage.getItem('zeeng') || 'null');
-      if (d) { this.points = d.points || 0; this.completed = d.completed || {}; }
-    } catch(e) {}
-    this.updateUI();
-  },
-
-  save() {
-    localStorage.setItem('zeeng', JSON.stringify({ points: this.points, completed: this.completed }));
-  },
-
-  add(appId, score, total, appName) {
-    const pts = score * 50;
-    if (!this.completed[appId]) {
-      this.points += pts;
-      this.completed[appId] = { score, total, points: pts, app: appName };
-      this.save();
-    }
-    this.updateUI();
-  },
-
-  updateUI() {
-    const el = document.getElementById('zeeng-points-val');
-    if (el) el.textContent = this.points;
-    const badge = document.getElementById('zeeng-widget');
-    if (badge && this.points > 0) badge.classList.add('has-points');
-  }
-};
-ZEENG.load();
-
-// ── APP PANEL (expanded case study + quiz) ───────────────────────────────────
-let currentAppId = null;
-
-function openAppPanel(appId) {
-  const app = APPS.find(a => a.id === appId);
-  if (!app) return;
-  currentAppId = appId;
-
-  const panel = document.getElementById('app-detail-panel');
-  const title = document.getElementById('adp-title');
-  const tag   = document.getElementById('adp-tag');
-  const cs    = document.getElementById('adp-case-study');
-  const qz    = document.getElementById('adp-quiz');
-
-  title.textContent = app.name;
-  tag.textContent = app.tag;
-  cs.innerHTML = app.caseStudy || '<p>Case study coming soon.</p>';
-
-  // Render quiz
-  if (app.quiz && app.quiz.length) {
-    const done = ZEENG.completed[appId];
-    if (done) {
-      qz.innerHTML = `
-        <div class="quiz-complete">
-          <div class="quiz-complete-icon">⚡</div>
-          <div class="quiz-complete-score">${done.score} / ${done.total} correct</div>
-          <div class="quiz-complete-pts">${done.points} Zeeng Points earned</div>
-          <button class="quiz-redeem-btn" onclick="openRedeemForm()">Redeem Points →</button>
-        </div>`;
-    } else {
-      qz.innerHTML = renderQuiz(app);
-    }
-  } else {
-    qz.innerHTML = '';
-  }
-
-  panel.classList.add('open');
-  panel.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeAppPanel() {
-  const panel = document.getElementById('app-detail-panel');
-  panel.classList.remove('open');
-  panel.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-  currentAppId = null;
-}
-
-function renderQuiz(app) {
-  const qs = app.quiz.map((q, i) => `
-    <div class="quiz-question" id="qq-${app.id}-${i}">
-      <div class="quiz-q-text">${i+1}. ${q.q}</div>
-      <div class="quiz-opts">
-        ${q.opts.map((opt, j) => `
-          <button type="button" class="quiz-opt" data-qi="${i}" data-oi="${j}"
-            onclick="selectOpt(this, ${app.id}, ${i}, ${j}, ${q.correct})">
-            ${opt}
-          </button>`).join('')}
-      </div>
-    </div>`).join('');
-
-  return `
-    <div class="quiz-container" id="quiz-${app.id}">
-      <div class="quiz-header">
-        <span class="quiz-label">⚡ ZEENG QUIZ</span>
-        <span class="quiz-pts-preview">${app.quiz.length * 50} pts available</span>
-      </div>
-      ${qs}
-      <div class="quiz-actions">
-        <button type="button" class="quiz-submit-btn" id="quiz-submit-${app.id}"
-          onclick="submitQuiz(${app.id})" disabled>Check Answers</button>
-      </div>
-      <div class="quiz-result" id="quiz-result-${app.id}" hidden></div>
-    </div>`;
-}
-
-const quizAnswers = {};
-
-function selectOpt(btn, appId, qi, oi, correct) {
-  const container = document.getElementById(`quiz-${appId}`);
-  if (!container) return;
-  // Deselect siblings
-  container.querySelectorAll(`.quiz-opt[data-qi="${qi}"]`).forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  if (!quizAnswers[appId]) quizAnswers[appId] = {};
-  quizAnswers[appId][qi] = oi;
-  // Enable submit if all answered
-  const app = APPS.find(a => a.id === appId);
-  if (app && Object.keys(quizAnswers[appId]).length === app.quiz.length) {
-    const submitBtn = document.getElementById(`quiz-submit-${appId}`);
-    if (submitBtn) submitBtn.disabled = false;
-  }
-}
-
-function submitQuiz(appId) {
-  const app = APPS.find(a => a.id === appId);
-  if (!app || !quizAnswers[appId]) return;
-
-  let score = 0;
-  const container = document.getElementById(`quiz-${appId}`);
-
-  app.quiz.forEach((q, i) => {
-    const chosen = quizAnswers[appId][i];
-    const correct = q.correct;
-    if (chosen === correct) score++;
-
-    // Mark each option
-    container.querySelectorAll(`.quiz-opt[data-qi="${i}"]`).forEach((btn, j) => {
-      btn.disabled = true;
-      if (j === correct) btn.classList.add('correct');
-      else if (j === chosen && chosen !== correct) btn.classList.add('wrong');
-    });
-  });
-
-  ZEENG.add(appId, score, app.quiz.length, app.name);
-
-  const pts = score * 50;
-  const resultEl = document.getElementById(`quiz-result-${appId}`);
-  resultEl.hidden = false;
-  resultEl.innerHTML = `
-    <div class="quiz-result-inner ${score === app.quiz.length ? 'perfect' : score >= app.quiz.length/2 ? 'good' : 'try-again'}">
-      <div class="quiz-result-score">${score}/${app.quiz.length} correct</div>
-      <div class="quiz-result-pts">+${pts} Zeeng Points</div>
-      <div class="quiz-result-msg">${score === app.quiz.length
-        ? "Perfect score. You clearly read the case study."
-        : score >= app.quiz.length/2
-        ? "Solid effort. Points credited."
-        : "A few misses. Still earned those points."}</div>
-      <button type="button" class="quiz-redeem-btn" onclick="openRedeemForm()">Redeem Points →</button>
-    </div>`;
-
-  document.getElementById(`quiz-submit-${appId}`).style.display = 'none';
-
-  // Re-render the card's quiz badge
-  renderApps();
-}
-
-function openRedeemForm() {
-  closeAppPanel();
-  const breakdown = Object.entries(ZEENG.completed)
-    .map(([id, v]) => `${v.app}: ${v.score}/${v.total} (${v.points} pts)`)
-    .join(', ');
-  // Pre-fill the contact panel if available, otherwise show redeem panel
-  const redeemPanel = document.getElementById('redeem-panel');
-  if (redeemPanel) {
-    const cappedPts = Math.min(ZEENG.points, 250);
-    document.getElementById('redeem-total').textContent = cappedPts;
-    document.getElementById('redeem-breakdown').textContent = breakdown
-      + (ZEENG.points > 250 ? ' (claiming 250 of ' + ZEENG.points + ' total)' : '');
-    redeemPanel.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeRedeemPanel() {
-  const p = document.getElementById('redeem-panel');
-  if (p) { p.classList.remove('open'); document.body.style.overflow = ''; }
-}
-
-// Anti-cheat: cap points per redemption, one submit per browser/session
-const REDEEM_CAP = 250;         // max pts per redemption request
-const REDEEM_LOCK_KEY = 'zeeng_redeemed'; // localStorage flag after submit
-
-function submitRedeem(e) {
-  e.preventDefault();
-
-  // Block if already submitted this session
-  if (sessionStorage.getItem('zeeng_submitted')) {
-    alert("You've already submitted a redemption this session. I'll be in touch on your first request.");
-    return;
-  }
-  // Block if already redeemed from this browser
-  if (localStorage.getItem(REDEEM_LOCK_KEY)) {
-    document.getElementById('redeem-form').innerHTML =
-      '<div class="redeem-success">' +
-      '<div class="redeem-success-icon">⚡</div>' +
-      '<h3>Already submitted!</h3>' +
-      '<p>You already sent a redemption from this browser. I have it — I'll be in touch.</p>' +
-      '</div>';
-    return;
-  }
-
-  const form = document.getElementById('redeem-form');
-  const data = new FormData(form);
-
-  // Cap: only process up to REDEEM_CAP pts per request
-  const claimedPts = Math.min(ZEENG.points, REDEEM_CAP);
-  const breakdown = Object.entries(ZEENG.completed)
-    .map(([id, v]) => v.app + ': ' + v.score + '/' + v.total + ' (' + v.points + ' pts)')
-    .join(' | ');
-
-  data.set('zeeng_points_claimed', claimedPts);
-  data.set('zeeng_points_total', ZEENG.points);
-  data.set('points_cap_applied', ZEENG.points > REDEEM_CAP
-    ? 'YES — capped from ' + ZEENG.points : 'No cap');
-  data.set('quiz_breakdown', breakdown);
-  data.set('submission_source', 'gotozee.vercel.app · Zeeng quiz redemption');
-
-  fetch('https://formspree.io/f/xjgjabwv', {
-    method: 'POST', body: data, headers: { Accept: 'application/json' }
-  })
-  .then(function(r) {
-    if (r.ok) {
-      // Lock this browser and session from submitting again
-      localStorage.setItem(REDEEM_LOCK_KEY, Date.now().toString());
-      sessionStorage.setItem('zeeng_submitted', '1');
-      const firstName = (data.get('name') || '').split(' ')[0] || 'Legend';
-      document.getElementById('redeem-form').innerHTML =
-        '<div class="redeem-success">' +
-        '<div class="redeem-success-icon">⚡</div>' +
-        '<h3>Zeeng Points Redeemed!</h3>' +
-        '<p>' + firstName + ', I have your ' + claimedPts + ' points locked in. I’ll be in touch to honour your reward. One request per person — I appreciate you not testing that.</p>' +
-        '</div>';
-    } else {
-      alert('Something went wrong. Email madebyyouni@gmail.com with your score and I’ll sort it.');
-    }
-  })
-  .catch(function() {
-    alert('Network error. Email madebyyouni@gmail.com with your score and I’ll sort it.');
-  });
-}
-
 renderApps();
       } catch(e) {}
     } else if (action === 'REMOVE' && dataMatch) {
@@ -2944,6 +2685,265 @@ if (portraitInner) {
   portraitInner.insertBefore(portraitImg, portraitInner.firstChild);
 }
 
+
+// ── ZEENG POINTS SYSTEM ──────────────────────────────────────────────────────
+const ZEENG = {
+  points: 0,
+  completed: {},
+
+  load() {
+    try {
+      const d = JSON.parse(localStorage.getItem('zeeng') || 'null');
+      if (d) { this.points = d.points || 0; this.completed = d.completed || {}; }
+    } catch(e) {}
+    this.updateUI();
+  },
+
+  save() {
+    localStorage.setItem('zeeng', JSON.stringify({ points: this.points, completed: this.completed }));
+  },
+
+  add(appId, score, total, appName) {
+    const pts = score * 50;
+    if (!this.completed[appId]) {
+      this.points += pts;
+      this.completed[appId] = { score, total, points: pts, app: appName };
+      this.save();
+    }
+    this.updateUI();
+  },
+
+  updateUI() {
+    const el = document.getElementById('zeeng-points-val');
+    if (el) el.textContent = this.points;
+    const badge = document.getElementById('zeeng-widget');
+    if (badge && this.points > 0) badge.classList.add('has-points');
+  }
+};
+ZEENG.load();
+
+// ── APP PANEL (expanded case study + quiz) ───────────────────────────────────
+let currentAppId = null;
+
+function openAppPanel(appId) {
+  const app = APPS.find(a => a.id === appId);
+  if (!app) return;
+  currentAppId = appId;
+
+  const panel = document.getElementById('app-detail-panel');
+  const title = document.getElementById('adp-title');
+  const tag   = document.getElementById('adp-tag');
+  const cs    = document.getElementById('adp-case-study');
+  const qz    = document.getElementById('adp-quiz');
+
+  title.textContent = app.name;
+  tag.textContent = app.tag;
+  cs.innerHTML = app.caseStudy || '<p>Case study coming soon.</p>';
+
+  // Render quiz
+  if (app.quiz && app.quiz.length) {
+    const done = ZEENG.completed[appId];
+    if (done) {
+      qz.innerHTML = `
+        <div class="quiz-complete">
+          <div class="quiz-complete-icon">⚡</div>
+          <div class="quiz-complete-score">${done.score} / ${done.total} correct</div>
+          <div class="quiz-complete-pts">${done.points} Zeeng Points earned</div>
+          <button class="quiz-redeem-btn" onclick="openRedeemForm()">Redeem Points →</button>
+        </div>`;
+    } else {
+      qz.innerHTML = renderQuiz(app);
+    }
+  } else {
+    qz.innerHTML = '';
+  }
+
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAppPanel() {
+  const panel = document.getElementById('app-detail-panel');
+  panel.classList.remove('open');
+  panel.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  currentAppId = null;
+}
+
+function renderQuiz(app) {
+  const qs = app.quiz.map((q, i) => `
+    <div class="quiz-question" id="qq-${app.id}-${i}">
+      <div class="quiz-q-text">${i+1}. ${q.q}</div>
+      <div class="quiz-opts">
+        ${q.opts.map((opt, j) => `
+          <button type="button" class="quiz-opt" data-qi="${i}" data-oi="${j}"
+            onclick="selectOpt(this, ${app.id}, ${i}, ${j}, ${q.correct})">
+            ${opt}
+          </button>`).join('')}
+      </div>
+    </div>`).join('');
+
+  return `
+    <div class="quiz-container" id="quiz-${app.id}">
+      <div class="quiz-header">
+        <span class="quiz-label">⚡ ZEENG QUIZ</span>
+        <span class="quiz-pts-preview">${app.quiz.length * 50} pts available</span>
+      </div>
+      ${qs}
+      <div class="quiz-actions">
+        <button type="button" class="quiz-submit-btn" id="quiz-submit-${app.id}"
+          onclick="submitQuiz(${app.id})" disabled>Check Answers</button>
+      </div>
+      <div class="quiz-result" id="quiz-result-${app.id}" hidden></div>
+    </div>`;
+}
+
+const quizAnswers = {};
+
+function selectOpt(btn, appId, qi, oi, correct) {
+  const container = document.getElementById(`quiz-${appId}`);
+  if (!container) return;
+  // Deselect siblings
+  container.querySelectorAll(`.quiz-opt[data-qi="${qi}"]`).forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  if (!quizAnswers[appId]) quizAnswers[appId] = {};
+  quizAnswers[appId][qi] = oi;
+  // Enable submit if all answered
+  const app = APPS.find(a => a.id === appId);
+  if (app && Object.keys(quizAnswers[appId]).length === app.quiz.length) {
+    const submitBtn = document.getElementById(`quiz-submit-${appId}`);
+    if (submitBtn) submitBtn.disabled = false;
+  }
+}
+
+function submitQuiz(appId) {
+  const app = APPS.find(a => a.id === appId);
+  if (!app || !quizAnswers[appId]) return;
+
+  let score = 0;
+  const container = document.getElementById(`quiz-${appId}`);
+
+  app.quiz.forEach((q, i) => {
+    const chosen = quizAnswers[appId][i];
+    const correct = q.correct;
+    if (chosen === correct) score++;
+
+    // Mark each option
+    container.querySelectorAll(`.quiz-opt[data-qi="${i}"]`).forEach((btn, j) => {
+      btn.disabled = true;
+      if (j === correct) btn.classList.add('correct');
+      else if (j === chosen && chosen !== correct) btn.classList.add('wrong');
+    });
+  });
+
+  ZEENG.add(appId, score, app.quiz.length, app.name);
+
+  const pts = score * 50;
+  const resultEl = document.getElementById(`quiz-result-${appId}`);
+  resultEl.hidden = false;
+  resultEl.innerHTML = `
+    <div class="quiz-result-inner ${score === app.quiz.length ? 'perfect' : score >= app.quiz.length/2 ? 'good' : 'try-again'}">
+      <div class="quiz-result-score">${score}/${app.quiz.length} correct</div>
+      <div class="quiz-result-pts">+${pts} Zeeng Points</div>
+      <div class="quiz-result-msg">${score === app.quiz.length
+        ? "Perfect score. You clearly read the case study."
+        : score >= app.quiz.length/2
+        ? "Solid effort. Points credited."
+        : "A few misses. Still earned those points."}</div>
+      <button type="button" class="quiz-redeem-btn" onclick="openRedeemForm()">Redeem Points →</button>
+    </div>`;
+
+  document.getElementById(`quiz-submit-${appId}`).style.display = 'none';
+
+  // Re-render the card's quiz badge
+  renderApps();
+}
+
+function openRedeemForm() {
+  closeAppPanel();
+  const breakdown = Object.entries(ZEENG.completed)
+    .map(([id, v]) => `${v.app}: ${v.score}/${v.total} (${v.points} pts)`)
+    .join(', ');
+  // Pre-fill the contact panel if available, otherwise show redeem panel
+  const redeemPanel = document.getElementById('redeem-panel');
+  if (redeemPanel) {
+    const cappedPts = Math.min(ZEENG.points, 250);
+    document.getElementById('redeem-total').textContent = cappedPts;
+    document.getElementById('redeem-breakdown').textContent = breakdown
+      + (ZEENG.points > 250 ? ' (claiming 250 of ' + ZEENG.points + ' total)' : '');
+    redeemPanel.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeRedeemPanel() {
+  const p = document.getElementById('redeem-panel');
+  if (p) { p.classList.remove('open'); document.body.style.overflow = ''; }
+}
+
+// Anti-cheat: cap points per redemption, one submit per browser/session
+const REDEEM_CAP = 250;         // max pts per redemption request
+const REDEEM_LOCK_KEY = 'zeeng_redeemed'; // localStorage flag after submit
+
+function submitRedeem(e) {
+  e.preventDefault();
+
+  // Block if already submitted this session
+  if (sessionStorage.getItem('zeeng_submitted')) {
+    alert("You've already submitted a redemption this session. I'll be in touch on your first request.");
+    return;
+  }
+  // Block if already redeemed from this browser
+  if (localStorage.getItem(REDEEM_LOCK_KEY)) {
+    document.getElementById('redeem-form').innerHTML =
+      '<div class="redeem-success">' +
+      '<div class="redeem-success-icon">⚡</div>' +
+      '<h3>Already submitted!</h3>' +
+      '<p>You already sent a redemption from this browser. I have it — I\'ll be in touch.</p>' +
+      '</div>';
+    return;
+  }
+
+  const form = document.getElementById('redeem-form');
+  const data = new FormData(form);
+
+  // Cap: only process up to REDEEM_CAP pts per request
+  const claimedPts = Math.min(ZEENG.points, REDEEM_CAP);
+  const breakdown = Object.entries(ZEENG.completed)
+    .map(([id, v]) => v.app + ': ' + v.score + '/' + v.total + ' (' + v.points + ' pts)')
+    .join(' | ');
+
+  data.set('zeeng_points_claimed', claimedPts);
+  data.set('zeeng_points_total', ZEENG.points);
+  data.set('points_cap_applied', ZEENG.points > REDEEM_CAP
+    ? 'YES — capped from ' + ZEENG.points : 'No cap');
+  data.set('quiz_breakdown', breakdown);
+  data.set('submission_source', 'gotozee.vercel.app · Zeeng quiz redemption');
+
+  fetch('https://formspree.io/f/xjgjabwv', {
+    method: 'POST', body: data, headers: { Accept: 'application/json' }
+  })
+  .then(function(r) {
+    if (r.ok) {
+      // Lock this browser and session from submitting again
+      localStorage.setItem(REDEEM_LOCK_KEY, Date.now().toString());
+      sessionStorage.setItem('zeeng_submitted', '1');
+      const firstName = (data.get('name') || '').split(' ')[0] || 'Legend';
+      document.getElementById('redeem-form').innerHTML =
+        '<div class="redeem-success">' +
+        '<div class="redeem-success-icon">⚡</div>' +
+        '<h3>Zeeng Points Redeemed!</h3>' +
+        '<p>' + firstName + ', I have your ' + claimedPts + ' points locked in. I’ll be in touch to honour your reward. One request per person — I appreciate you not testing that.</p>' +
+        '</div>';
+    } else {
+      alert('Something went wrong. Email madebyyouni@gmail.com with your score and I’ll sort it.');
+    }
+  })
+  .catch(function() {
+    alert('Network error. Email madebyyouni@gmail.com with your score and I’ll sort it.');
+  });
+}
 renderApps();
 observeReveal();
 attachPreviewListeners();
