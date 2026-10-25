@@ -1584,6 +1584,58 @@
     .about-availability-standalone .availability-block { padding: 2rem 1.5rem; }
   }
 
+
+/* ── EXPAND BUTTON GLOW (tempt the click) ────────────────────────────── */
+@keyframes toggle-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(240,165,0,0); border-color: rgba(240,165,0,0.3); }
+  50%       { box-shadow: 0 0 14px 3px rgba(240,165,0,0.28); border-color: var(--amber); color: var(--amber); }
+}
+.section-toggle-btn:not(.open) {
+  animation: toggle-glow 2.4s ease-in-out infinite;
+}
+.section-toggle-btn.open {
+  animation: none;
+}
+
+/* ── BETA SECTION: label + banner unified ────────────────────────────── */
+.beta-unified-block {
+  border-left: 3px solid var(--amber);
+  padding-left: 1.25rem;
+  margin-bottom: 2rem;
+}
+.beta-unified-block .section-label {
+  margin-bottom: 0.6rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+}
+.beta-unified-block .beta-offer-banner {
+  margin: 0;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* ── FOUNDER'S NOTE IN PANEL ─────────────────────────────────────────── */
+.founders-note-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.founders-note-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.9rem;
+}
+.founders-note-body {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: rgba(253,252,248,0.78);
+  font-style: italic;
+}
+
 </style>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBhMGEwOCIvPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwYTUwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuNCIvPgogIDx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI3MDAiIAogICAgZmlsbD0iI2YwYTUwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zdHlsZT0iaXRhbGljIj5aPC90ZXh0Pgo8L3N2Zz4=">
@@ -1691,18 +1743,18 @@
 
   <!-- SECTION 2: Beta - campaign card always visible, app cards collapse -->
   <div class="apps-section" id="section-beta">
-    <div class="section-header reveal">
+    <!-- beta label + banner share one unified amber-bordered block -->
+    <div class="beta-unified-block reveal">
       <div class="section-label" data-num="02">Beta Access Open</div>
-    </div>
-    <!-- campaign card: always visible, sits between the label and the expand button -->
-    <div class="beta-offer-banner reveal">
+      <div class="beta-offer-banner">
       <div class="beta-offer-inner">
         <div class="beta-offer-badge">LIMITED BETA</div>
         <p class="beta-offer-headline">Be the first. Three months free. No card.</p>
         <p class="beta-offer-body">Every app here is fully built. Not waiting for funding, not in staging - built, running, waiting for people to actually use it. The first 10 beta testers on each app get three months free when it launches. No card, no fine print. What I'm asking for: show up, use the thing, tell me what's broken. That's the whole deal.</p>
         <a href="#contact" class="beta-offer-cta" onclick="document.getElementById('contact-panel').classList.add('open')">Claim Your Beta Spot →</a>
       </div>
-    </div>
+    </div><!-- end beta-offer-banner -->
+    </div><!-- end beta-unified-block -->
     <!-- h2 + expand button on the same row -->
     <div class="section-beta-h2-row">
       <h2 class="section-title">Built. Beta testers needed.</h2>
@@ -1889,9 +1941,9 @@
         LinkedIn - Uzo Nnabike
         <span>Connect →</span>
       </a>
-      <a href="#" class="contact-link" style="cursor:default;" onclick="return false;">
-        X / Twitter
-        <span>Coming Soon ☕</span>
+      <a href="https://x.com/madebyyouni" class="contact-link" target="_blank">
+        @madebyyouni on X
+        <span>Follow →</span>
       </a>
       <a href="#" class="contact-link" style="cursor:default;" onclick="return false;">
         Threads
@@ -2037,7 +2089,7 @@ try {
 // Mark page as JS-ready - this enables all scroll animations
 // Without this class, all animated elements are visible by default (no JS = no blank page)
 document.body.classList.add('js-ready');
-const DATA_VERSION = 'v16';
+const DATA_VERSION = 'v17';
 if (localStorage.getItem('zee_apps_version') !== DATA_VERSION) {
   localStorage.removeItem('zee_apps');
   localStorage.setItem('zee_apps_version', DATA_VERSION);
@@ -2172,29 +2224,31 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     url: null,
     caseStudy: null,
     quiz: null,
-    isVendr: true
+    isMystery: true
   },
   {
     id: 9, name: "Cont.ent",
     section: 3,
-    tag: "AI × Content", status: "building",
-    desc: "Coming soon. We are building it.",
+    tag: "??? × ???", status: "building",
+    desc: "You'll know what it does when it's ready. For now - take your best guess.",
     story: null,
     tech: [],
     url: null,
     caseStudy: null,
-    quiz: null
+    quiz: null,
+    isMystery: true
   },
   {
-    id: 10, name: "Unnamed Health App",
+    id: 10, name: "???",
     section: 3,
-    tag: "Health × AI", status: "building",
-    desc: "A health tracking and support app. Name pending.",
+    tag: "??? × ???", status: "building",
+    desc: "Name pending. But it's in health. Guess the concept, earn points.",
     story: null,
     tech: [],
     url: null,
     caseStudy: null,
-    quiz: null
+    quiz: null,
+    isMystery: true
   }
 ];
 
@@ -2237,7 +2291,7 @@ function renderApps() {
 
     // ── preview block ──────────────────────────────────────────────────────
     let previewHTML = '';
-    if (app.isVendr) {
+    if (app.isMystery) {
       previewHTML = `
         <div class="vendr-mystery-preview">
           <div class="vendr-mystery-mark">?</div>
@@ -2323,7 +2377,7 @@ function renderApps() {
     // ── quiz badge ─────────────────────────────────────────────────────────
     const zeengDone = ZEENG.completed[app.id];
     let quizBadge = '';
-    if (app.isVendr) {
+    if (app.isMystery) {
       quizBadge = zeengDone
         ? `<span class="zeeng-quiz-done" title="Guess submitted!">⚡ ${zeengDone.points} pts earned</span>`
         : `<button type="button" class="zeeng-quiz-btn" onclick="openAppPanel(${app.id});event.stopPropagation();">Guess the concept → +50 pts</button>`;
@@ -2547,31 +2601,32 @@ function toggleVendrGuessOpt(el) {
   el.classList.toggle('selected');
 }
 
-function submitVendrGuess() {
-  if (ZEENG.completed[8]) return;
-  const textEl = document.getElementById('vendr-guess-text');
+function submitMysteryGuess(appId, appName) {
+  if (ZEENG.completed[appId]) return;
+  const textEl = document.getElementById('mystery-guess-text');
   const text = textEl ? textEl.value.trim() : '';
   const selectedOpts = [...document.querySelectorAll('.vgf-opt.selected')].map(b => b.dataset.cat);
   if (!text && selectedOpts.length === 0) {
     alert("Type something or pick a category first - we need your actual guess.");
     return;
   }
-  const btn = document.getElementById('vendr-guess-submit');
+  const btn = document.getElementById('mystery-guess-submit');
   if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
 
   fetch('https://formspree.io/f/xjgjabwv', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
-      _subject: '[Vendr] Build Challenge Guess',
+      _subject: '[' + appName + '] Build Challenge Guess',
+      app: appName,
       guess_text: text || '(no text)',
       guess_categories: selectedOpts.join(', ') || 'none selected',
       source: 'portfolio_build_challenge_stage1'
     })
   }).then(r => {
     if (r.ok) {
-      ZEENG.add(8, 1, 1, 'Vendr');
-      const result = document.getElementById('vendr-guess-result');
+      ZEENG.add(appId, 1, 1, appName);
+      const result = document.getElementById('mystery-guess-result');
       if (result) {
         result.hidden = false;
         result.innerHTML = `<div class="quiz-complete">
@@ -2582,7 +2637,6 @@ function submitVendrGuess() {
         </div>`;
       }
       if (btn) btn.style.display = 'none';
-      // Update the card's quiz badge
       renderApps();
     } else {
       if (btn) { btn.disabled = false; btn.textContent = 'Try again →'; }
@@ -3227,7 +3281,7 @@ function openAppPanel(appId) {
   title.textContent = app.name;
   tag.textContent = app.tag;
   // Vendr: mystery app - show guess form instead of case study + quiz
-  if (app.isVendr) {
+  if (app.isMystery) {
     const done = ZEENG.completed[appId];
     cs.innerHTML = `<div class="vendr-mystery-preview" style="margin-bottom:1.5rem;border-radius:6px;overflow:hidden;">
       <div class="vendr-mystery-mark">?</div>
@@ -3243,13 +3297,13 @@ function openAppPanel(appId) {
     } else {
       qz.innerHTML = `<div class="vendr-guess-form">
         <div class="vgf-header">
-          <div class="vgf-eyebrow">The Build Challenge - Stage 1 · Active Now</div>
-          <h3>What is Vendr?</h3>
+          <div class="vgf-eyebrow">The Build Challenge - Stage 1 - Active Now</div>
+          <h3>What is \${app.name}?</h3>
           <p>The name is all you get. Take your best guess at what this app does. Get close - earn 50 Zeeng points. No hints, no clues. Just the name.</p>
         </div>
-        <textarea id="vendr-guess-text" placeholder="Vendr is a tool that helps people..." rows="3"></textarea>
+        <textarea id="mystery-guess-text" placeholder="\${app.name} is a tool that helps people..." rows="3"></textarea>
         <div class="vgf-or">or pick the closest category</div>
-        <div class="vgf-options" id="vendr-guess-opts">
+        <div class="vgf-options" id="mystery-guess-opts">
           <button class="vgf-opt" data-cat="marketplace" onclick="toggleVendrGuessOpt(this)">Marketplace / Commerce</button>
           <button class="vgf-opt" data-cat="b2b" onclick="toggleVendrGuessOpt(this)">B2B SaaS</button>
           <button class="vgf-opt" data-cat="fintech" onclick="toggleVendrGuessOpt(this)">Payments / Fintech</button>
@@ -3257,12 +3311,19 @@ function openAppPanel(appId) {
           <button class="vgf-opt" data-cat="ai" onclick="toggleVendrGuessOpt(this)">AI-powered App</button>
           <button class="vgf-opt" data-cat="other" onclick="toggleVendrGuessOpt(this)">Something else</button>
         </div>
-        <button class="quiz-submit-btn" id="vendr-guess-submit" onclick="submitVendrGuess()">Submit Guess → Earn 50 pts</button>
-        <div id="vendr-guess-result" hidden></div>
+        <button class="quiz-submit-btn" id="mystery-guess-submit" onclick="submitMysteryGuess(\${app.id}, '\${app.name}')">Submit Guess - Earn 50 pts</button>
+        <div id="mystery-guess-result" hidden></div>
       </div>`;
     }
   } else {
-    cs.innerHTML = app.caseStudy || '<p>Case study coming soon.</p>';
+    // Founder's Note first, then case study
+    const founderNote = app.story
+      ? `<div class="founders-note-section">
+          <div class="founders-note-eyebrow">Founder's Note</div>
+          <p class="founders-note-body">\${app.story}</p>
+        </div>`
+      : '';
+    cs.innerHTML = founderNote + (app.caseStudy || '<p>Case study coming soon.</p>');
 
     // Render quiz
     if (app.quiz && app.quiz.length) {
