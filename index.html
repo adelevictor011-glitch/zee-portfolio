@@ -2037,7 +2037,7 @@ try {
 // Mark page as JS-ready - this enables all scroll animations
 // Without this class, all animated elements are visible by default (no JS = no blank page)
 document.body.classList.add('js-ready');
-const DATA_VERSION = 'v15';
+const DATA_VERSION = 'v16';
 if (localStorage.getItem('zee_apps_version') !== DATA_VERSION) {
   localStorage.removeItem('zee_apps');
   localStorage.setItem('zee_apps_version', DATA_VERSION);
@@ -2048,7 +2048,7 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     section: 1,
     tag: "AI × Image Generation", status: "live",
     desc: "The image-side companion to Zing. Generates expert-level image prompts across 28 aesthetic styles - for ads, product shots, brand visuals, and everything in between. Lock what you love, swap what you don't.",
-    story: "Zing handles video. Imagend handles everything else. When it became clear that the same people building video campaigns also needed high-quality image prompts - for ads, product shots, brand visuals - I built the image-side companion. One tool for the directors, one for the designers. Same standard of output.",
+    story: "It started with Canva. Twenty minutes deep in a stock photo search, looking for one image that didn't feel recycled from a 2014 corporate presentation. I said there has to be something smarter than this, why do I keep doing this like this? So we built the image generation side first. Generate exactly what you need instead of searching for something close enough. Then we realized the same engine could handle full designs, ads, brand visuals, the whole visual workflow. One friction solved, three more become visible. Everything imagined can be real. That's the name. That's the point.",
     tech: ["HTML", "Supabase", "Flutterwave", "Vercel"],
     url: "https://imagend.vercel.app/",
     caseStudy: `<h4>The Problem</h4><p>AI image generation is powerful - until you're staring at an empty prompt box wondering why your output looks like a stock photo from 2009. Most people write vague prompts and get vague results. They blame the AI. The AI is fine. The input is broken.</p><h4>The Solution</h4><p>Imagend gives you 28 curated aesthetic styles - from cyberpunk editorial to product-on-white Shopify-ready - paired with a Brand Kit that bakes your colors, typography and visual language into every prompt automatically. You stop prompting from scratch and start directing with precision.</p><h4>Who It's For</h4><p>Creative directors, freelance designers, and brand teams who need consistent, on-brand AI images without hiring a prompt engineer. If you've ever wished your AI images looked like they came from a real creative director - that's what Imagend does.</p><h4>What's Next</h4><p>Native Figma plugin. Batch generation. Style transfer from uploaded reference images. The roadmap is full.</p>`,
@@ -2065,7 +2065,7 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     section: 1,
     tag: "AI × Business Tools", status: "live",
     desc: "Nurj reads where your business actually is, identifies the real constraint, and turns your next move into precise AI instructions. Signal scan, prompt studio, playbooks, and a momentum layer - built for Nigerian founders who want commercial movement, not AI theatre.",
-    story: "Every side hustler in Lagos has questions they don't know how to ask AI. Nurj fixes the prompt before it's written. Tell it your stage, your constraint, your next move - it generates the exact instruction that gets a useful answer. Less AI theatre. More commercial movement.",
+    story: "Small businesses in Nigeria are not failing because they lack hustle. They are failing because they are making the same avoidable mistakes that nobody warned them about. No structure, no strategy, just effort and effort without direction burns people out faster than failure does. Nurj was built for the solopreneur who is working hard and still going sideways. Tell it where you are, what you have, what you are trying to do, it generates the exact prompt that gets a useful answer from AI instead of a generic one. Less talking to the machine like it is Google. More actually moving.",
     tech: ["HTML", "Groq", "Supabase", "Vercel"],
     url: "https://nurj.vercel.app/",
     caseStudy: `<h4>The Problem</h4><p>Nigerian founders are smart, resourceful, and good at moving fast. But most of them are using AI like a search engine. They type vague questions, get generic answers, and wonder why ChatGPT isn't helping their business grow. The prompt is the bottleneck - and they don't know it.</p><h4>The Solution</h4><p>Nurj's Signal Scan reads your business stage, identifies the actual constraint you're facing (not the one you think you're facing), and generates precise AI instructions that match your exact situation. It then tracks your next move with a momentum layer so you don't lose the thread when life gets in the way.</p><h4>Who It's For</h4><p>Nigerian side-hustlers, early founders, and small business owners who have tried AI tools and found them useless. Nurj doesn't replace your strategy - it makes your strategy legible to AI, and then makes AI useful to your strategy.</p><h4>What's Next</h4><p>WhatsApp integration. Playbooks for specific Nigerian industries (logistics, fashion, food). A community of founders sharing what's working.</p>`,
@@ -2082,7 +2082,7 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     section: 2,
     tag: "AI × Business Strategy", status: "live",
     desc: "Founders used to waste hours trying to coerce AI into giving useful startup advice. Foundeck fixes that - it generates expert-tier, hallucination-free mega prompts that force AI to write perfect business plans, go-to-market strategies, and branding briefs.",
-    story: "Most people think they know what they don't know. The real problem is they don't know what they should know. Foundeck lays it all out - every question, every strategy, every angle you'd only discover after a painful mistake. Pick what applies. Let the AI do the rest.",
+    story: "Every house that lasts was built on a solid foundation. Businesses are no different, the ones that collapse usually collapsed at the base, not the top. The problem is that the foundational knowledge; the questions to ask, the mistakes to avoid, the structure to put in place before anything else, only comes from hiring an expert or learning the hard way. Most people can't afford one and don't have time for the other. Foundeck exists to close that gap. Every framework, every critical question, every angle that would normally cost you a consultant or a painful lesson, laid out so you can build on solid ground from day one.",
     tech: ["AI Prompting", "Strategy", "GTM"],
     url: "https://foundeck.vercel.app/",
     caseStudy: `<h4>The Problem</h4><p>Asking AI for a business plan usually produces something that sounds smart and means nothing. Generic frameworks, hollow advice, and zero understanding of your specific situation. You don't get a strategy - you get a Wikipedia article about strategy. The problem is the prompt, and most founders don't know how to write one that works.</p><h4>The Solution</h4><p>Foundeck generates what we call "mega prompts" - comprehensive, structured AI instructions that force the model to engage seriously with your actual business situation. These aren't templates. They're interrogative prompts that account for your stage, your market, your competition, your constraints, and your unfair advantage.</p><h4>Who It's For</h4><p>First-time founders building their first real business plan. Operators who need a go-to-market document that doesn't read like it was written by committee. Branding and marketing leads who want AI to match their company's actual voice, not some platitude-ridden approximation of it.</p><h4>What's Next</h4><p>Industry-specific mega prompts. Integration with Nurj for stage-aware strategy generation. A community library of the highest-performing prompts, shared by founders who used them.</p>`,
@@ -2099,7 +2099,7 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     section: 2,
     tag: "AI × Video Pre-Production", status: "invite",
     desc: "Turn raw text scripts into production-ready AI video prompts in seconds. Zing automatically handles strict clip limits and character consistency, saving directors hours of tedious formatting so they can focus on storytelling.",
-    story: "AI video is powerful but unruly. Directors were spending more time reformatting scripts than actually directing. Zing handles the technical constraints automatically - clip lengths, character consistency, voice assignments - so the creative work stays creative. Built for the people who make things, not the people who manage software.",
+    story: "Hollywood is a full industry for a reason. Getting video output to that level requires a lot of people, a lot of coordination, and a lot of things going right at the same time. We used to think we needed that kind of team. Turns out we needed a team, just not the kind that comes late or has excuses ready. The kind you assign a scene, a clip, a whole episode to, and they just cook. Zing is that team. You direct, it produces. Clip by clip, character consistent, technically tight, no back and forth. Every video you make should be moving you toward something. Not managing software.",
     tech: ["React", "Veo 3", "Firebase", "Vercel"],
     url: "https://zing-video-manager.vercel.app/",
     caseStudy: `<h4>The Problem</h4><p>Veo 3 and modern AI video models are extraordinary - but they're unruly. They have strict clip length limits. They lose character consistency between shots. They demand prompts written in a specific technical format that has nothing to do with how directors write scripts. Creative professionals were spending more time reformatting than directing.</p><h4>The Solution</h4><p>Zing takes a raw text script and converts it automatically into production-ready AI video prompts. It handles clip segmentation, character consistency mapping, voice assignment, and format compliance without you thinking about any of it. You write the story. Zing handles the machine.</p><h4>The Impact</h4><p>Beta directors have reported cutting their spool time - the time from script to first render - from over 40 minutes to under 6. That's not a small improvement. That's a workflow transformation.</p><h4>Who It's For</h4><p>Creative directors, content agencies, and brand teams producing AI video campaigns at scale. If you're making more than one video a week with AI, Zing isn't a nice-to-have. It's a necessity.</p>`,
@@ -2116,7 +2116,7 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     section: 2,
     tag: "Fintech × MSME", status: "building",
     desc: "Most Nigerian small businesses run on memory and paper. Kobo gives them a simple WhatsApp tool to track money in and out, stay tax-ready, and actually qualify for business loans.",
-    story: "Nigerian market traders move serious money every day but they're completely invisible to banks - no records, no history, no credit. Kobo fixes that through WhatsApp, the one app they already live on. Record a sale, generate an invoice, build a credit profile. Simple as sending a voice note.",
+    story: "If I told you I know exactly how much I spend every day, I would be lying. I can get away with that. A business cannot. Money moving without records is not just disorganized, it is a liability when the tax man comes, when a loan application is on the table, when you need to prove the business is real and not just a feeling. The new tax laws made it worse. Suddenly businesses that had been invisible to banks were also invisible to compliance. Kobo fixes both problems with the same action. Record it, invoice it, track it and the audit trail that builds up quietly on the side is the same one that gets you taken seriously by a lender. Every Kobo counts. That is the name. That is the whole product.",
     tech: ["WhatsApp API", "Node.js", "Paystack"],
     url: "https://kobo-1.vercel.app/",
     caseStudy: `<h4>The Problem</h4><p>There are millions of market traders and small business owners in Lagos running serious money through their hands every single day. They know their business. They don't have records. Banks don't see them. Microfinance institutions don't trust them. They can't get loans, can't scale, can't protect themselves. Not because they're not viable - because they're invisible.</p><h4>The Solution</h4><p>Kobo is a WhatsApp-native financial OS for Nigerian micro and small businesses. No app to download. No dashboard to learn. The interface is a conversation - the same one they're already having on their phones every day. Record a sale by texting it. Generate an invoice by asking. Build a tax-ready record by just... doing business normally.</p><h4>Why WhatsApp?</h4><p>Because that's where Nigerian MSMEs already live. Over 90% of small business communication in Nigeria happens on WhatsApp. Meeting people where they are isn't a design philosophy here - it's a business requirement.</p><h4>What It Unlocks</h4><p>Six months of transaction records = your first loan application. A year of consistent invoicing = your first credit profile. Kobo doesn't just manage money - it builds the financial identity that lets small businesses stop being invisible.</p>`,
@@ -2133,7 +2133,7 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     section: 2,
     tag: "Enterprise × Automation", status: "shipped",
     desc: "GAC Motors needed a way to track customers, jobs, and follow-ups - without buying expensive software. Built a full workshop management system in Excel with WhatsApp reminders built in.",
-    story: "I work at the dealership. I see it every day - jobs slipping through, customers not followed up, parts untracked, estimates rewritten from memory. Rather than waiting for management to buy expensive software, I just built what the workshop needed. Excel, done properly, with WhatsApp built in.",
+    story: "Working your way up is great until you realize nobody is guiding you up. You are just climbing and figuring it out as the weight increases. I was doing the brain work and the grunt work at the same time, carrying the operation on instinct because there was no system to lean on. GAC customers has a style. They stretch your patience, load you up, and expect you to grow with it. You do not break, you just expand. But I realized that if I could not find people who operated the way I operate, I could build something that makes them work that way anyway. The CRM is that system. It standardizes what a well-run workshop looks like; every job tracked, every customer followed up, every part accounted for, so the throughput does not depend on one person holding it all in their head.",
     tech: ["Excel", "VBA", "WhatsApp"],
     url: null, preview: "gac",
     caseStudy: `<h4>The Origin</h4><p>I built this because I work there. Not as a case study exercise - as an act of not being able to watch a broken process run badly for one more day. Workshop jobs were falling through cracks. Customers weren't being followed up. Parts were being reordered from memory because nobody tracked inventory. Estimates were rewritten every time because the last one wasn't saved anywhere sensible.</p><h4>The Solution</h4><p>A full workshop management system built entirely in Microsoft Excel, with VBA automations and WhatsApp integration for customer follow-ups. No Salesforce. No custom software. No IT department. Just Excel done properly - with automated job tracking, customer history, parts log, labour time, invoicing, and WhatsApp notification triggers that run without the workshop team needing to think about them.</p><h4>Why This Matters</h4><p>Most people treat Excel as a table. This is Excel as an operational backbone. The same principles that make expensive CRMs valuable - visibility, accountability, follow-through - can be built in a spreadsheet if you know what you're doing. Across Africa, thousands of dealerships and workshops are running the same broken paper process this was built to replace.</p><h4>Status</h4><p>Running in production at CIG Motors, the GAC dealership in Lagos. Not public. Contact me if your workshop needs the same.</p>`,
@@ -2147,10 +2147,10 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
   },
   {
     id: 7, name: "Wokbook",
-    section: 3,
+    section: 2,
     tag: "AI × Learning", status: "building",
     desc: "A learning-first LLM prompt optimizer that combines a text generation engine with a mastery course. Write better prompts, get better outputs - with a built-in curriculum that levels you up as you go.",
-    story: "Most people use AI like a search engine and get search engine results. Wokbook teaches you how to actually use it - not through theory but through doing. Generate, learn, retry, master. The course and the tool are the same thing.",
+    story: "I cracked it for myself first. Found the actual way to learn what I needed to learn, not just consume information but retain it, apply it, build with it. Shared it with a few people. It worked for them too. That was the moment; how many people are out there going through the same struggle, learning the hard way when there is a better way sitting right here? The app grew from there, iteration after iteration, shaped by everyone who used it. The idea is simple. A textbook gives you the knowledge. A Wokbook makes sure it sticks. Anyone can be anything, learning starts it, doing locks it in.",
     tech: ["Next.js", "Gemini Flash", "Vercel"],
     url: null,
     caseStudy: `<h4>The Idea</h4><p>Everyone is using AI wrong. Not intentionally - they just haven't been shown how to use it right. Wokbook is what happens when you build the course and the tool in the same place: you don't learn prompting by reading about it, you learn it by doing it, seeing what breaks, understanding why, and leveling up in real-time.</p><h4>Why It's Different</h4><p>Most prompt engineering courses are passive. You watch a video, you nod, and then you go back to typing the same bad prompts you always typed. Wokbook builds the learning into the generation loop itself. Every time you generate something, the system helps you understand why it worked or didn't - and shows you the adjusted version that would have worked better.</p><h4>The Tech</h4><p>Built on Gemini Flash for speed and cost, Next.js for the full-stack framework, hosted on Vercel. The curriculum engine is proprietary - a dynamic scaffold that adapts to where the user keeps going wrong.</p><h4>Status</h4><p>In active development. Joining the pipeline list here is your ticket to the front of the waitlist when it opens. No spam. Just a message when it's ready.</p>`,
@@ -2173,6 +2173,28 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     caseStudy: null,
     quiz: null,
     isVendr: true
+  },
+  {
+    id: 9, name: "Cont.ent",
+    section: 3,
+    tag: "AI × Content", status: "building",
+    desc: "Coming soon. We are building it.",
+    story: null,
+    tech: [],
+    url: null,
+    caseStudy: null,
+    quiz: null
+  },
+  {
+    id: 10, name: "Unnamed Health App",
+    section: 3,
+    tag: "Health × AI", status: "building",
+    desc: "A health tracking and support app. Name pending.",
+    story: null,
+    tech: [],
+    url: null,
+    caseStudy: null,
+    quiz: null
   }
 ];
 
