@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zee — I Build Things That Actually Work</title>
-<meta name="description" content="Uzo Nnabike (Zee) — Lagos-based solo founder building AI-powered products for African businesses. Fintech, video tools, prompt engines. Open to partnerships, investors and collaborators." />
+<title>Zee - I Build Things That Actually Work</title>
+<meta name="description" content="Uzo Nnabike (Zee) - Lagos-based solo founder building AI-powered products for African businesses. Fintech, video tools, prompt engines. Open to partnerships, investors and collaborators." />
 <meta name="author" content="Uzo Nnabike" />
 <meta name="keywords" content="Zee, Uzo Nnabike, Lagos founder, Nigerian startup, AI products, fintech, Kobo, Nurj, Imagend, Zing, Foundeck, Made by Youni" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Zee — I Build Things That Actually Work" />
+<meta property="og:title" content="Zee - I Build Things That Actually Work" />
 <meta property="og:description" content="Lagos-based solo founder building AI-powered products for African businesses. Open to partnerships, investors and collaborators." />
 <meta property="og:url" content="https://gotozee.vercel.app" />
 <meta property="og:site_name" content="Zee · Made by Youni" />
@@ -18,8 +18,8 @@
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Zee — I Build Things That Actually Work" />
-<meta name="twitter:description" content="Lagos-based solo founder. AI products, fintech tools, video pre-production. If your idea has been sitting in a notes app too long — let's talk." />
+<meta name="twitter:title" content="Zee - I Build Things That Actually Work" />
+<meta name="twitter:description" content="Lagos-based solo founder. AI products, fintech tools, video pre-production. If your idea has been sitting in a notes app too long - let's talk." />
 <meta name="twitter:creator" content="@madebyyouni" />
 
 <!-- Canonical -->
@@ -52,7 +52,7 @@
     overflow-x: hidden;
   }
 
-  /* cursor handled by canvas — body hides OS cursor site-wide; interactive elements use cursor:pointer as fallback */
+  /* cursor handled by canvas - body hides OS cursor site-wide; interactive elements use cursor:pointer as fallback */
   body { cursor: none; }
   @media (hover: none) { body { cursor: auto; } }
 
@@ -282,7 +282,7 @@
     overflow: hidden; border-radius: 2px;
   }
   .app-preview-popup.visible { opacity: 1; transform: translateY(0) scale(1); }
-  /* landscape mode — for wide desktop screenshots like Zing */
+  /* landscape mode - for wide desktop screenshots like Zing */
   .app-preview-popup.landscape { width: 560px; }
   .app-preview-popup.landscape .popup-carousel { height: 315px; } /* 16:9 at 560px */
   .app-preview-popup-header {
@@ -315,7 +315,7 @@
     overflow-y: hidden; overflow-x: hidden;
     position: relative; flex-shrink: 0;
   }
-  /* carousel slides — image fills width, natural height, scrolls vertically */
+  /* carousel slides - image fills width, natural height, scrolls vertically */
   .popup-carousel-slide img {
     width: 100%; height: auto;
     display: block; user-select: none; pointer-events: none;
@@ -397,7 +397,7 @@
   }
   /* ── ABOUT / MANIFESTO ── */
 
-  /* portrait band — full-width strip between header and content */
+  /* portrait band - full-width strip between header and content */
   .about-portrait-band {
     border-bottom: 1px solid var(--line);
     padding: 4rem 3rem;
@@ -651,7 +651,7 @@
 
   /* ── SCROLL ANIMATIONS ── */
 
-  /* base reveal — fade up (default) */
+  /* base reveal - fade up (default) */
   body.js-ready .reveal {
     opacity: 0; transform: translateY(32px);
     transition: opacity 0.75s cubic-bezier(.25,.46,.45,.94),
@@ -659,7 +659,7 @@
   }
   body.js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* hero title — scale up from slight shrink */
+  /* hero title - scale up from slight shrink */
   body.js-ready .hero-title {
     font-family: var(--display);
     font-size: clamp(4rem, 12vw, 11rem); font-weight: 900; line-height: 1.0;
@@ -679,7 +679,7 @@
     color: #4caf7d;
   }
 
-  /* hero eyebrow — slide from left */
+  /* hero eyebrow - slide from left */
   body.js-ready .hero-eyebrow {
     font-family: var(--mono); font-size: 0.78rem; color: var(--amber);
     letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem;
@@ -692,21 +692,21 @@
     content: ''; display: block; width: 2.5rem; height: 1px; background: var(--amber);
   }
 
-  /* hero stats — stagger in */
+  /* hero stats - stagger in */
   body.js-ready .hero-stat {
     opacity: 0; transform: translateY(20px);
     transition: opacity 0.6s, transform 0.6s cubic-bezier(.25,.46,.45,.94);
   }
   body.js-ready .hero-stat.visible { opacity: 1; transform: translateY(0); }
 
-  /* section headers — slide from left */
+  /* section headers - slide from left */
   body.js-ready .section-header {
     opacity: 0; transform: translateX(-20px);
     transition: opacity 0.7s, transform 0.7s cubic-bezier(.25,.46,.45,.94);
   }
   body.js-ready .section-header.visible { opacity: 1; transform: translateX(0); }
 
-  /* app cards — flip up from bottom with slight rotate */
+  /* app cards - flip up from bottom with slight rotate */
   body.js-ready .app-card {
     opacity: 0;
     transform: translateY(40px) rotateX(6deg);
@@ -716,28 +716,28 @@
   }
   body.js-ready .app-card.visible { opacity: 1; transform: translateY(0) rotateX(0deg); }
 
-  /* about left — slide from left */
+  /* about left - slide from left */
   body.js-ready .about-left {
     opacity: 0; transform: translateX(-30px);
     transition: opacity 0.8s, transform 0.8s cubic-bezier(.25,.46,.45,.94);
   }
   body.js-ready .about-left.visible { opacity: 1; transform: translateX(0); }
 
-  /* about right — slide from right */
+  /* about right - slide from right */
   body.js-ready .about-right {
     opacity: 0; transform: translateX(30px);
     transition: opacity 0.8s 0.15s, transform 0.8s 0.15s cubic-bezier(.25,.46,.45,.94);
   }
   body.js-ready .about-right.visible { opacity: 1; transform: translateX(0); }
 
-  /* portrait frame — fade in with scale */
+  /* portrait frame - fade in with scale */
   body.js-ready .about-portrait-frame {
     opacity: 0; transform: scale(1.03);
     transition: opacity 1s 0.3s, transform 1s 0.3s cubic-bezier(.25,.46,.45,.94);
   }
   body.js-ready .about-portrait-frame.visible { opacity: 1; transform: scale(1); }
 
-  /* contact big text — chars sweep in */
+  /* contact big text - chars sweep in */
   body.js-ready .contact-big {
     font-family: var(--display);
     font-size: clamp(3rem, 8vw, 7rem); font-weight: 900;
@@ -749,7 +749,7 @@
   body.js-ready .contact-big.visible { opacity: 1; transform: translateY(0); }
   .contact-big em { font-family: var(--display); font-style: italic; color: var(--amber); font-weight: 300; }
 
-  /* contact links — stagger slide up */
+  /* contact links - stagger slide up */
   body.js-ready .contact-link {
     font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em;
     color: var(--white); text-decoration: none;
@@ -765,7 +765,7 @@
   .contact-link:hover { background: var(--ghost); border-color: var(--amber); }
   .contact-link span { color: rgba(253,252,248,0.6); font-size: 0.75rem; }
 
-  /* manifesto text — fade + blur in */
+  /* manifesto text - fade + blur in */
   body.js-ready .manifesto-text {
     font-family: var(--display); font-style: italic;
     font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -777,7 +777,7 @@
   body.js-ready .manifesto-text.visible { opacity: 1; filter: blur(0); transform: translateY(0); }
   .manifesto-text em { color: var(--amber); font-style: normal; }
 
-  /* availability block — scale in */
+  /* availability block - scale in */
   body.js-ready .availability-block {
     border: 1px solid var(--line); padding: 2rem;
     opacity: 0; transform: scale(0.97) translateY(16px);
@@ -894,7 +894,7 @@
     #contact-inner { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
     #admin-panel { width: 100%; }
     footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; }
-    /* hamburger nav — mobile only */
+    /* hamburger nav - mobile only */
     .nav-hamburger {
       display: flex; flex-direction: column; justify-content: center;
       align-items: center; gap: 5px;
@@ -946,7 +946,7 @@
   }
   .skip-link:focus { top: 1rem; }
 
-  /* ── FOCUS VISIBLE — global keyboard ring ── */
+  /* ── FOCUS VISIBLE - global keyboard ring ── */
   :focus-visible {
     outline: 2px solid var(--amber);
     outline-offset: 3px;
@@ -1305,13 +1305,292 @@
   .beta-offer-banner { padding: 1.25rem; }
   .apps-section .section-title { font-size: 1.1rem; }
 }
+
+/* ── SPLIT-SCREEN LAYOUT (desktop ≥ 1024px) ──────────────────────────────── */
+@media (min-width: 1024px) {
+  #page-wrapper {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    align-items: start;
+    min-height: 100vh;
+  }
+
+  /* Left panel - hero, sticky */
+  #left-panel {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  #left-panel #hero {
+    min-height: unset;
+    height: 100%;
+    padding: 6rem 2.5rem 3rem;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #left-panel .hero-title {
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    margin-bottom: 2rem;
+  }
+
+  #left-panel .hero-bottom {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  #left-panel .hero-stat-num {
+    font-size: 1.8rem;
+  }
+
+  #left-panel .hero-desc {
+    grid-column: 1 / 3;
+    font-size: 0.85rem;
+    line-height: 1.65;
+  }
+
+  #left-panel .hero-eyebrow {
+    font-size: 0.72rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Right panel - all other content */
+  #right-panel {
+    min-width: 0;
+    min-height: 100vh;
+  }
+
+  /* Ensure section headers don't over-pad in right panel */
+  #right-panel .section-header {
+    padding: 4rem 2.5rem 3rem;
+  }
+
+  /* About inner stays 2-col in right panel */
+  #right-panel #about-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── PROCESS SECTION ────────────────────────────────────────────────────────── */
+#process {
+  position: relative; z-index: 1;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.process-step {
+  padding: 3rem 2rem;
+  border-right: 1px solid var(--line);
+  position: relative;
+  transition: background 0.25s;
+}
+.process-step:last-child { border-right: none; }
+.process-step:hover { background: rgba(240,165,0,0.04); }
+.process-num {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.process-num::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--amber);
+  opacity: 0.5;
+}
+.process-step h3 {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+.process-step p {
+  font-family: var(--body);
+  font-size: 0.82rem;
+  color: rgba(253,252,248,0.55);
+  line-height: 1.6;
+  margin: 0;
+}
+.process-connector {
+  position: absolute;
+  top: 3rem;
+  right: -1px;
+  width: 1px;
+  height: 1.5rem;
+  background: var(--amber);
+  opacity: 0.25;
+}
+
+@media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .process-step {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .process-step:nth-child(2n) { border-right: none; }
+}
+
+@media (max-width: 600px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-step {
+    border-right: none;
+  }
+  .process-step h3 { font-size: 1rem; }
+}
+
+
+  /* ── SECTION COLLAPSE ── */
+  .section-header-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .section-toggle-btn {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--amber); background: none;
+    border: 1px solid rgba(240,165,0,0.3); border-radius: 3px;
+    padding: 0.35rem 0.75rem; cursor: pointer; transition: all 0.2s;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .section-toggle-btn:hover { background: rgba(240,165,0,0.1); border-color: var(--amber); }
+  .section-toggle-arrow { display: inline-block; transition: transform 0.35s ease; }
+  .section-toggle-btn.open .section-toggle-arrow { transform: rotate(180deg); }
+
+  .section-collapse-body {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows 0.55s cubic-bezier(0.4,0,0.2,1);
+  }
+  .section-collapse-body.open { grid-template-rows: 1fr; }
+  .section-collapse-inner { min-height: 0; overflow: hidden; }
+
+  /* Beta h2 row (expand btn next to title) */
+  .section-beta-h2-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; padding: 2rem 0 1.5rem; flex-wrap: wrap;
+  }
+  .section-beta-h2-row .section-title { margin: 0; }
+
+  /* ── BUILD CHALLENGE EXPLAINER ── */
+  .build-challenge-card {
+    margin-top: 3rem; padding: 2rem 2.5rem;
+    border: 1px solid rgba(240,165,0,0.2); border-radius: 8px;
+    background: rgba(240,165,0,0.03);
+  }
+  .bcc-eyebrow {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 0.6rem;
+  }
+  .bcc-title { font-family: var(--display); font-size: 1.3rem; font-weight: 700;
+    margin-bottom: 1rem; color: var(--white); }
+  .bcc-body { font-size: 0.88rem; line-height: 1.75; color: rgba(253,252,248,0.65);
+    margin-bottom: 1.5rem; }
+  .bcc-stages { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .bcc-stage {
+    font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.3rem 0.65rem;
+    border: 1px solid rgba(240,165,0,0.2); border-radius: 3px;
+    color: rgba(253,252,248,0.4);
+  }
+  .bcc-stage.active { border-color: var(--amber); color: var(--amber); background: rgba(240,165,0,0.08); }
+
+  /* ── VENDR MYSTERY CARD ── */
+  .vendr-mystery-preview {
+    aspect-ratio: 16/9; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.75rem;
+    background: repeating-linear-gradient(
+      45deg, rgba(240,165,0,0.025) 0px, rgba(240,165,0,0.025) 1px,
+      transparent 1px, transparent 14px
+    );
+    border-bottom: 1px solid rgba(240,165,0,0.1);
+  }
+  .vendr-mystery-mark {
+    font-family: var(--display); font-size: 4rem; font-weight: 900;
+    color: rgba(240,165,0,0.12); letter-spacing: -0.02em; line-height: 1;
+    animation: vpulse 3s ease-in-out infinite;
+  }
+  @keyframes vpulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  .vendr-mystery-label {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(240,165,0,0.35);
+  }
+
+  /* Vendr guess form in panel */
+  .vendr-guess-form { padding: 1rem 0; }
+  .vgf-header { margin-bottom: 1.5rem; }
+  .vgf-eyebrow { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 0.5rem; }
+  .vgf-header h3 { font-family: var(--display); font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .vgf-header p { font-size: 0.88rem; line-height: 1.7; color: rgba(253,252,248,0.65); }
+  #vendr-guess-text {
+    width: 100%; padding: 0.75rem 1rem; margin-bottom: 1.25rem;
+    background: rgba(253,252,248,0.06); border: 1px solid rgba(240,165,0,0.2);
+    border-radius: 6px; color: var(--white); font-family: var(--body); font-size: 0.9rem;
+    resize: vertical; transition: border-color 0.2s;
+  }
+  #vendr-guess-text:focus { outline: none; border-color: var(--amber); }
+  .vgf-or { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(253,252,248,0.3); text-align: center;
+    margin-bottom: 1rem; }
+  .vgf-options { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .vgf-opt {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+    padding: 0.4rem 0.9rem; border: 1px solid rgba(240,165,0,0.25);
+    border-radius: 3px; background: none; color: rgba(253,252,248,0.6);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .vgf-opt:hover, .vgf-opt.selected {
+    border-color: var(--amber); color: var(--amber); background: rgba(240,165,0,0.1);
+  }
+
+  /* ── ABOUT COLLAPSE ── */
+  .about-collapse-body {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows 0.55s cubic-bezier(0.4,0,0.2,1);
+  }
+  .about-collapse-body.open { grid-template-rows: 1fr; }
+  .about-collapse-inner { min-height: 0; overflow: hidden; }
+
+  /* About standalone availability (outside collapse) */
+  .about-availability-standalone {
+    border-top: 1px solid var(--line); margin-top: 2rem;
+  }
+  .about-availability-standalone .availability-block {
+    padding: 3rem 3rem;
+    max-width: 640px;
+  }
+  @media (max-width: 768px) {
+    .about-availability-standalone .availability-block { padding: 2rem 1.5rem; }
+  }
+
 </style>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBhMGEwOCIvPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwYTUwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuNCIvPgogIDx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI3MDAiIAogICAgZmlsbD0iI2YwYTUwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zdHlsZT0iaXRhbGljIj5aPC90ZXh0Pgo8L3N2Zz4=">
 </head>
 <body>
 
-<!-- SKIP LINK (WCAG 2.1 — keyboard users) -->
+<!-- SKIP LINK (WCAG 2.1 - keyboard users) -->
 <a href="#work" class="skip-link">Skip to main content</a>
 
 <!-- CURSOR -->
@@ -1338,6 +1617,9 @@
   </button>
 </nav>
 
+<!-- SPLIT LAYOUT WRAPPER -->
+<div id="page-wrapper">
+<div id="left-panel">
 <!-- HERO -->
 <section id="hero">
   <div class="hero-eyebrow">Lagos, Nigeria · Yes, I actually reply emails</div>
@@ -1360,12 +1642,12 @@
       <div class="hero-stat-label">Problems Lagos handed me for free</div>
     </div>
     <div class="hero-desc reveal" style="grid-column: 2 / 4;">
-      I build apps, tools, and products for African businesses — and occasionally for anyone 
-      else with a decent idea. If yours has been sitting in a notes app too long, let's talk.
+      I build apps, tools, and products for African businesses - and occasionally for whoever else has a decent idea. If yours has been sitting in a notes app for six months, you know who you are. Let's talk.
     </div>
   </div>
 </section>
-
+</div><!-- /left-panel -->
+<div id="right-panel">
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track" id="marquee-track">
@@ -1388,49 +1670,139 @@
 
 <!-- WORK -->
 <section id="work">
-  <!-- SECTION 1: Live / Shipped -->
+
+  <!-- SECTION 1: Shipped - collapsible -->
   <div class="apps-section" id="section-shipped">
     <div class="section-header reveal">
       <div class="section-label" data-num="01">What I've Shipped</div>
-      <h2 class="section-title">Ready, Set, Go.</h2>
+      <div class="section-header-row">
+        <h2 class="section-title">These ones are live.</h2>
+        <button class="section-toggle-btn" id="toggle-shipped" onclick="toggleSection('shipped')">
+          Show work <span class="section-toggle-arrow">↓</span>
+        </button>
+      </div>
     </div>
-    <div class="apps-grid" id="grid-shipped"></div>
+    <div class="section-collapse-body" id="body-shipped">
+      <div class="section-collapse-inner">
+        <div class="apps-grid" id="grid-shipped"></div>
+      </div>
+    </div>
   </div>
 
-  <!-- SECTION 2: Beta / Done -->
+  <!-- SECTION 2: Beta - campaign card always visible, app cards collapse -->
   <div class="apps-section" id="section-beta">
     <div class="section-header reveal">
       <div class="section-label" data-num="02">Beta Access Open</div>
-      <h2 class="section-title">Built. Beta testers needed.</h2>
     </div>
+    <!-- campaign card: always visible, sits between the label and the expand button -->
     <div class="beta-offer-banner reveal">
       <div class="beta-offer-inner">
         <div class="beta-offer-badge">LIMITED BETA</div>
-        <p class="beta-offer-headline">Be the first. 3 months free. No card.</p>
-        <p class="beta-offer-body">Every app in this section is fully built and waiting for real users. Not paying users — real users. The first ten beta testers on each app get free access for the first three months after launch — no card, no catch. What it costs you: show up, use it, and tell me what’s broken. I’ll do the rest.</p>
+        <p class="beta-offer-headline">Be the first. Three months free. No card.</p>
+        <p class="beta-offer-body">Every app here is fully built. Not waiting for funding, not in staging - built, running, waiting for people to actually use it. The first 10 beta testers on each app get three months free when it launches. No card, no fine print. What I'm asking for: show up, use the thing, tell me what's broken. That's the whole deal.</p>
         <a href="#contact" class="beta-offer-cta" onclick="document.getElementById('contact-panel').classList.add('open')">Claim Your Beta Spot →</a>
       </div>
     </div>
-    <div class="apps-grid" id="grid-beta"></div>
+    <!-- h2 + expand button on the same row -->
+    <div class="section-beta-h2-row">
+      <h2 class="section-title">Built. Beta testers needed.</h2>
+      <button class="section-toggle-btn" id="toggle-beta" onclick="toggleSection('beta')">
+        See the apps <span class="section-toggle-arrow">↓</span>
+      </button>
+    </div>
+    <div class="section-collapse-body" id="body-beta">
+      <div class="section-collapse-inner">
+        <div class="apps-grid" id="grid-beta"></div>
+      </div>
+    </div>
   </div>
 
-  <!-- SECTION 3: Pipeline -->
+  <!-- SECTION 3: Pipeline - collapsible, includes Vendr and build challenge -->
   <div class="apps-section" id="section-pipeline">
     <div class="section-header reveal">
       <div class="section-label" data-num="03">On Deck</div>
-      <h2 class="section-title">In the Pipeline.</h2>
+      <div class="section-header-row">
+        <h2 class="section-title">In the Pipeline.</h2>
+        <button class="section-toggle-btn" id="toggle-pipeline" onclick="toggleSection('pipeline')">
+          See what's cooking <span class="section-toggle-arrow">↓</span>
+        </button>
+      </div>
     </div>
-    <div class="apps-grid" id="grid-pipeline"></div>
+    <div class="section-collapse-body" id="body-pipeline">
+      <div class="section-collapse-inner">
+        <div class="apps-grid" id="grid-pipeline"></div>
+        <!-- App Build Challenge explainer - sits below the pipeline cards -->
+        <div class="build-challenge-card reveal">
+          <div class="bcc-eyebrow">How the Pipeline Works</div>
+          <h3 class="bcc-title">The App Build Challenge</h3>
+          <p class="bcc-body">Every app in this section is in active development. I drop hints as things progress - and you earn Zeeng points for engaging at every stage. The earlier you engage, the more points you can stack. Guess what the app does before the scope is public. Challenge the name once the scope drops. Call out the wrong tech stack once the build is underway. The quiz unlocks last, after everything is finalized. The people who show up early get the most. That's the whole game.</p>
+          <div class="bcc-stages">
+            <div class="bcc-stage active">Stage 1: Guess the concept</div>
+            <div class="bcc-stage">Stage 2: Challenge the name</div>
+            <div class="bcc-stage">Stage 3: Challenge the stack</div>
+            <div class="bcc-stage">Stage 4: Full quiz unlocks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<section id="process">
+  <div class="section-header reveal">
+    <div class="section-label" data-num="02">How I Work</div>
+    <h2 class="section-title">From idea to shipped.</h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="process-num">01</div>
+      <h3>Brief</h3>
+      <p>You tell me the problem. I push back on half of it - not to be difficult, but because what you say you want and what will actually fix things are usually two different conversations. We figure that out first.</p>
+      <div class="process-connector"></div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">02</div>
+      <h3>Build</h3>
+      <p>I work in the open. You see something real within days, not a Notion doc full of plans. If something needs to change, we catch it early - before you've committed a budget to the wrong direction.</p>
+      <div class="process-connector"></div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">03</div>
+      <h3>Test</h3>
+      <p>Real users, real feedback before anything goes live. Not me guessing from a desk - actual people who look like your customers, using the actual product, telling me what's wrong.</p>
+      <div class="process-connector"></div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">04</div>
+      <h3>Launch</h3>
+      <p>Live, deployed, handed off properly. Not 'good luck, here's a GitHub link' - you get credentials, documentation, and a plain guide for when something breaks at 2am. It will break at 2am at least once.</p>
+      <div class="process-connector"></div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">05</div>
+      <h3>Iterate</h3>
+      <p>V1 is a question, not an answer. Once people are using it, you find out what actually matters. We build V2 from that - not from a spec written before anyone touched the product. That's how this works.</p>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="section-header reveal">
-    <div class="section-label" data-num="02">Who I Am</div>
-    <h2 class="section-title">The Person</h2>
+    <div class="section-label" data-num="03">The Founder</div>
+    <div class="section-header-row">
+      <h2 class="section-title">Who I Am</h2>
+      <button class="section-toggle-btn" id="toggle-about" onclick="toggleSection('about')">
+        The person <span class="section-toggle-arrow">↓</span>
+      </button>
+    </div>
   </div>
 
+  <div class="about-collapse-body" id="body-about">
+  <div class="about-collapse-inner">
   <!-- Portrait sits right below the header, before the quote -->
   <div class="about-portrait-band">
     <div class="about-portrait-frame" id="about-portrait">
@@ -1451,17 +1823,13 @@
   <div id="about-inner">
     <div class="about-left">
       <p class="manifesto-text">
-        I believe the gap between a <em>good idea</em> and a working product 
-        should be measured in days, not months.
+        The gap between a <em>good idea</em> and a working product should be measured in days, not months. I've been proving that since 2022.
       </p>
       <p class="about-body">
-        Solo founder based in Lagos. I operate at the intersection of software engineering,
-        product management, and business development — building across multiple ventures 
-        simultaneously with AI as the core force multiplier.
+        Solo founder based in Lagos. I operate at the intersection of software engineering, product management, and business development - building across multiple ventures at the same time with AI as the core force multiplier.
       </p>
       <p class="about-body">
-        My work is rooted in a deep conviction about African markets: underserved businesses 
-        deserve tools built for them. Not adapted Western products. Purpose-built, from scratch.
+        My work is rooted in a conviction about African markets: underserved businesses deserve tools built specifically for them. Not adapted Western products. Built from scratch, for the actual context.
       </p>
       <div class="skills-list">
         <div class="skill-item">Building Products</div>
@@ -1472,26 +1840,30 @@
         <div class="skill-item">Moving Fast</div>
       </div>
     </div>
-    <div class="about-right">
-      <div class="availability-block">
-        <div class="avail-label"><div class="avail-dot"></div> Right Now</div>
-        <div class="avail-title">Looking for the Right People</div>
-        <div class="avail-body">
-          I'm not just posting work here — I'm actively looking for people to build with. 
-          If you have an idea, need a technical partner, or just want to test something 
-          I've made, reach out. I reply fast.
-        </div>
-        <ul class="collab-list">
-          <li>Partner on a product from scratch</li>
-          <li>Help you go from idea to first users</li>
-          <li>Test and give feedback on my apps</li>
-          <li>Talk to investors (pre-seed stage)</li>
-          <li>Take on contract product work</li>
-          <li>Or just have a good conversation</li>
-        </ul>
-      </div>
-    </div>
   </div><!-- end about-inner -->
+  </div><!-- end about-collapse-inner -->
+  </div><!-- end about-collapse-body -->
+
+  <!-- Always visible: Looking for the Right People (never collapses) -->
+  <div class="about-availability-standalone">
+    <div class="availability-block">
+      <div class="avail-label"><div class="avail-dot"></div> Right Now</div>
+      <div class="avail-title">Looking for the Right People</div>
+      <div class="avail-body">
+        I'm not just posting work here - I'm actively looking for people to build with.
+        If you have an idea, need a technical partner, or just want to test something
+        I've made, reach out. I actually reply.
+      </div>
+      <ul class="collab-list">
+        <li>Partner on a product from scratch</li>
+        <li>Help you go from idea to first users</li>
+        <li>Test and give feedback on my apps</li>
+        <li>Talk to investors (pre-seed stage)</li>
+        <li>Take on contract product work</li>
+        <li>Or just have a good conversation</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -1505,7 +1877,7 @@
       <div class="contact-big">Got an<br><em>idea?</em><br>Talk to me.</div>
       <p class="reveal" style="font-size:0.9rem; color:rgba(253,252,248,0.4); line-height:1.7; font-family:var(--serif); font-style:italic;">
         Tester, partner, investor, or someone who just has something 
-        worth building — my door is open. Seriously, reach out.
+        worth building - my door is open. Seriously, reach out.
       </p>
     </div>
     <div class="contact-links">
@@ -1514,7 +1886,7 @@
         <span>Email →</span>
       </a>
       <a href="https://www.linkedin.com/in/uzo-nnabike-229ba92a5" class="contact-link" target="_blank">
-        LinkedIn — Uzo Nnabike
+        LinkedIn - Uzo Nnabike
         <span>Connect →</span>
       </a>
       <a href="#" class="contact-link" style="cursor:default;" onclick="return false;">
@@ -1532,8 +1904,10 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">© 2026 Zee · Lagos, Nigeria · Building in public</div>
-  <div class="footer-right">Built with <a href="https://www.anthropic.com" target="_blank">Anthropic Claude</a> · Deployed on Vercel</div>
+  <div class="footer-right">Made by <span style="color:var(--amber)">Youni</span> · All rights reserved</div>
 </footer>
+</div><!-- /right-panel -->
+</div><!-- /page-wrapper -->
 
 <!-- ADMIN PANEL -->
 <!-- CONTACT MODAL -->
@@ -1541,7 +1915,7 @@
   <div class="modal-box">
     <div id="contact-form-wrap">
       <div class="modal-title">Let's <em>talk.</em></div>
-      <p class="modal-sub">Tell me a bit about what you're thinking. I'll get back to you within 24 hours — usually faster.</p>
+      <p class="modal-sub">Tell me a bit about what you're thinking. I'll get back to you within 24 hours - usually faster.</p>
       <div data-fs-error style="display:none;font-family:var(--mono);font-size:0.72rem;color:#ff5f57;margin-bottom:1rem;letter-spacing:0.06em;padding:0.5rem 0;border-bottom:1px solid rgba(255,95,87,0.2);"></div>
       <form id="contact-form" novalidate>
         <input type="hidden" name="_subject" value="New message from portfolio" />
@@ -1638,7 +2012,7 @@
       <input class="panel-input" id="panel-input" placeholder="Tell me what to add or change..." />
       <button class="panel-send" onclick="sendMessage()">Send</button>
     </div>
-    <div class="panel-hint">Try: "Add Zing Video Manager — AI video campaign tool for Nigerian creators. Status: live. Tech: React, Firebase, Veo3."</div>
+    <div class="panel-hint">Try: "Add Zing Video Manager - AI video campaign tool for Nigerian creators. Status: live. Tech: React, Firebase, Veo3."</div>
   </div>
 </div>
 
@@ -1660,10 +2034,10 @@ try {
   if (cd)  CAROUSEL_DATA = JSON.parse(cd.textContent);
 } catch(e) { console.error('Image data load error:', e); }
 
-// Mark page as JS-ready — this enables all scroll animations
+// Mark page as JS-ready - this enables all scroll animations
 // Without this class, all animated elements are visible by default (no JS = no blank page)
 document.body.classList.add('js-ready');
-const DATA_VERSION = 'v14';
+const DATA_VERSION = 'v15';
 if (localStorage.getItem('zee_apps_version') !== DATA_VERSION) {
   localStorage.removeItem('zee_apps');
   localStorage.setItem('zee_apps_version', DATA_VERSION);
@@ -1673,51 +2047,51 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     id: 1, name: "Imagend",
     section: 1,
     tag: "AI × Image Generation", status: "live",
-    desc: "The image-side companion to Zing. Generates expert-level image prompts across 28 aesthetic styles — for ads, product shots, brand visuals, and everything in between. Lock what you love, swap what you don't.",
-    story: "Zing handles video. Imagend handles everything else. When it became clear that the same people building video campaigns also needed high-quality image prompts — for ads, product shots, brand visuals — I built the image-side companion. One tool for the directors, one for the designers. Same standard of output.",
+    desc: "The image-side companion to Zing. Generates expert-level image prompts across 28 aesthetic styles - for ads, product shots, brand visuals, and everything in between. Lock what you love, swap what you don't.",
+    story: "Zing handles video. Imagend handles everything else. When it became clear that the same people building video campaigns also needed high-quality image prompts - for ads, product shots, brand visuals - I built the image-side companion. One tool for the directors, one for the designers. Same standard of output.",
     tech: ["HTML", "Supabase", "Flutterwave", "Vercel"],
     url: "https://imagend.vercel.app/",
-    caseStudy: `<h4>The Problem</h4><p>AI image generation is powerful — until you're staring at an empty prompt box wondering why your output looks like a stock photo from 2009. Most people write vague prompts and get vague results. They blame the AI. The AI is fine. The input is broken.</p><h4>The Solution</h4><p>Imagend gives you 28 curated aesthetic styles — from cyberpunk editorial to product-on-white Shopify-ready — paired with a Brand Kit that bakes your colors, typography and visual language into every prompt automatically. You stop prompting from scratch and start directing with precision.</p><h4>Who It's For</h4><p>Creative directors, freelance designers, and brand teams who need consistent, on-brand AI images without hiring a prompt engineer. If you've ever wished your AI images looked like they came from a real creative director — that's what Imagend does.</p><h4>What's Next</h4><p>Native Figma plugin. Batch generation. Style transfer from uploaded reference images. The roadmap is full.</p>`,
+    caseStudy: `<h4>The Problem</h4><p>AI image generation is powerful - until you're staring at an empty prompt box wondering why your output looks like a stock photo from 2009. Most people write vague prompts and get vague results. They blame the AI. The AI is fine. The input is broken.</p><h4>The Solution</h4><p>Imagend gives you 28 curated aesthetic styles - from cyberpunk editorial to product-on-white Shopify-ready - paired with a Brand Kit that bakes your colors, typography and visual language into every prompt automatically. You stop prompting from scratch and start directing with precision.</p><h4>Who It's For</h4><p>Creative directors, freelance designers, and brand teams who need consistent, on-brand AI images without hiring a prompt engineer. If you've ever wished your AI images looked like they came from a real creative director - that's what Imagend does.</p><h4>What's Next</h4><p>Native Figma plugin. Batch generation. Style transfer from uploaded reference images. The roadmap is full.</p>`,
     quiz: [
-      { q: "How many aesthetic styles does Imagend support?", opts: ["14 styles", "21 styles", "28 styles", "35 styles"], correct: 2 },
-      { q: "What does the Brand Kit feature do?", opts: ["Generates logos", "Bakes brand colors/typography into every prompt", "Resizes images", "Suggests color palettes"], correct: 1 },
-      { q: "What's the sister product that handles AI video?", opts: ["Foundeck", "Kobo", "Zing", "Nurj"], correct: 2 },
-      { q: "True or False: Imagend requires design experience to use.", opts: ["True", "False"], correct: 1 },
-      { q: "What does Imagend primarily solve?", opts: ["Slow internet connections", "Inconsistent / generic AI image outputs", "Low image resolution", "Copyright issues"], correct: 1 }
+      { q: "How do you currently use AI for your visual content?", opts: ["I don't use AI for images yet", "I use it occasionally but results are hit-or-miss", "I use it regularly but struggle with brand consistency", "I have a fully optimized AI image workflow"], correct: 2 },
+      { q: "What is Imagend's biggest differentiator over generic AI tools?", opts: ["It generates images faster", "It locks brand colors and typography into every image via Brand Kit", "It supports more art styles than competitors", "It's free to use"], correct: 1 },
+      { q: "How many aesthetic styles does Imagend currently support?", opts: ["12 styles", "21 styles", "28 styles", "40 styles"], correct: 2 },
+      { q: "What product in Zee's suite handles AI video (Imagend's sister)?", opts: ["Nurj", "Zing", "Kobo", "Foundeck"], correct: 1 },
+      { q: "What core problem does Imagend solve?", opts: ["Slow internet speeds when generating images", "Outputs that look generic and don't match your brand", "Expensive AI subscription costs", "Copyright issues with AI art"], correct: 1 }
     ]
   },
   {
     id: 2, name: "Nurj",
     section: 1,
     tag: "AI × Business Tools", status: "live",
-    desc: "Nurj reads where your business actually is, identifies the real constraint, and turns your next move into precise AI instructions. Signal scan, prompt studio, playbooks, and a momentum layer — built for Nigerian founders who want commercial movement, not AI theatre.",
-    story: "Every side hustler in Lagos has questions they don't know how to ask AI. Nurj fixes the prompt before it's written. Tell it your stage, your constraint, your next move — it generates the exact instruction that gets a useful answer. Less AI theatre. More commercial movement.",
+    desc: "Nurj reads where your business actually is, identifies the real constraint, and turns your next move into precise AI instructions. Signal scan, prompt studio, playbooks, and a momentum layer - built for Nigerian founders who want commercial movement, not AI theatre.",
+    story: "Every side hustler in Lagos has questions they don't know how to ask AI. Nurj fixes the prompt before it's written. Tell it your stage, your constraint, your next move - it generates the exact instruction that gets a useful answer. Less AI theatre. More commercial movement.",
     tech: ["HTML", "Groq", "Supabase", "Vercel"],
     url: "https://nurj.vercel.app/",
-    caseStudy: `<h4>The Problem</h4><p>Nigerian founders are smart, resourceful, and good at moving fast. But most of them are using AI like a search engine. They type vague questions, get generic answers, and wonder why ChatGPT isn't helping their business grow. The prompt is the bottleneck — and they don't know it.</p><h4>The Solution</h4><p>Nurj's Signal Scan reads your business stage, identifies the actual constraint you're facing (not the one you think you're facing), and generates precise AI instructions that match your exact situation. It then tracks your next move with a momentum layer so you don't lose the thread when life gets in the way.</p><h4>Who It's For</h4><p>Nigerian side-hustlers, early founders, and small business owners who have tried AI tools and found them useless. Nurj doesn't replace your strategy — it makes your strategy legible to AI, and then makes AI useful to your strategy.</p><h4>What's Next</h4><p>WhatsApp integration. Playbooks for specific Nigerian industries (logistics, fashion, food). A community of founders sharing what's working.</p>`,
+    caseStudy: `<h4>The Problem</h4><p>Nigerian founders are smart, resourceful, and good at moving fast. But most of them are using AI like a search engine. They type vague questions, get generic answers, and wonder why ChatGPT isn't helping their business grow. The prompt is the bottleneck - and they don't know it.</p><h4>The Solution</h4><p>Nurj's Signal Scan reads your business stage, identifies the actual constraint you're facing (not the one you think you're facing), and generates precise AI instructions that match your exact situation. It then tracks your next move with a momentum layer so you don't lose the thread when life gets in the way.</p><h4>Who It's For</h4><p>Nigerian side-hustlers, early founders, and small business owners who have tried AI tools and found them useless. Nurj doesn't replace your strategy - it makes your strategy legible to AI, and then makes AI useful to your strategy.</p><h4>What's Next</h4><p>WhatsApp integration. Playbooks for specific Nigerian industries (logistics, fashion, food). A community of founders sharing what's working.</p>`,
     quiz: [
-      { q: "What does Nurj's 'Signal Scan' identify?", opts: ["Your competitors", "Your real business stage and constraint", "Your social media metrics", "Your target audience demographics"], correct: 1 },
-      { q: "What's the Momentum Layer in Nurj?", opts: ["A crypto wallet integration", "A feature that keeps your next move visible and measurable", "A social sharing tool", "An email marketing sequence"], correct: 1 },
-      { q: "Who is Nurj's primary user?", opts: ["Enterprise CEOs", "Nigerian side-hustlers and early founders", "Social media managers", "Government agencies"], correct: 1 },
-      { q: "True or False: Nurj replaces your business strategy.", opts: ["True", "False"], correct: 1 },
-      { q: "What is Nurj's core philosophy?", opts: ["Move slow and plan everything", "Less AI theatre, more commercial movement", "AI first, humans second", "More features = better product"], correct: 1 }
+      { q: "What best describes your current business situation?", opts: ["Still just an idea", "Just getting started - trying to find first customers", "Running but can't see what's actually moving the needle", "Scaling fast and need better systems"], correct: 2 },
+      { q: "What does Nurj's Signal Scan identify?", opts: ["Your business revenue potential", "The real constraint blocking your current business stage", "Competitor weaknesses in your market", "Your team's productivity gaps"], correct: 1 },
+      { q: "How do you currently track your business priorities?", opts: ["I don't - it's all in my head", "WhatsApp notes or a physical notebook", "A spreadsheet I barely update", "A proper project management tool"], correct: 2 },
+      { q: "What does the Momentum Layer in Nurj do?", opts: ["Tracks your social media engagement", "Makes your next move visible and measurable", "Automates your customer follow-ups", "Generates investor reports"], correct: 1 },
+      { q: "What is Nurj's core philosophy about AI?", opts: ["More AI features mean better results", "Less AI theatre, more commercial movement", "AI should replace human business decisions", "Automation is the answer to every business problem"], correct: 1 }
     ]
   },
   {
     id: 3, name: "Foundeck",
     section: 2,
     tag: "AI × Business Strategy", status: "live",
-    desc: "Founders used to waste hours trying to coerce AI into giving useful startup advice. Foundeck fixes that — it generates expert-tier, hallucination-free mega prompts that force AI to write perfect business plans, go-to-market strategies, and branding briefs.",
-    story: "Most people think they know what they don't know. The real problem is they don't know what they should know. Foundeck lays it all out — every question, every strategy, every angle you'd only discover after a painful mistake. Pick what applies. Let the AI do the rest.",
+    desc: "Founders used to waste hours trying to coerce AI into giving useful startup advice. Foundeck fixes that - it generates expert-tier, hallucination-free mega prompts that force AI to write perfect business plans, go-to-market strategies, and branding briefs.",
+    story: "Most people think they know what they don't know. The real problem is they don't know what they should know. Foundeck lays it all out - every question, every strategy, every angle you'd only discover after a painful mistake. Pick what applies. Let the AI do the rest.",
     tech: ["AI Prompting", "Strategy", "GTM"],
     url: "https://foundeck.vercel.app/",
-    caseStudy: `<h4>The Problem</h4><p>Asking AI for a business plan usually produces something that sounds smart and means nothing. Generic frameworks, hollow advice, and zero understanding of your specific situation. You don't get a strategy — you get a Wikipedia article about strategy. The problem is the prompt, and most founders don't know how to write one that works.</p><h4>The Solution</h4><p>Foundeck generates what we call "mega prompts" — comprehensive, structured AI instructions that force the model to engage seriously with your actual business situation. These aren't templates. They're interrogative prompts that account for your stage, your market, your competition, your constraints, and your unfair advantage.</p><h4>Who It's For</h4><p>First-time founders building their first real business plan. Operators who need a go-to-market document that doesn't read like it was written by committee. Branding and marketing leads who want AI to match their company's actual voice, not some platitude-ridden approximation of it.</p><h4>What's Next</h4><p>Industry-specific mega prompts. Integration with Nurj for stage-aware strategy generation. A community library of the highest-performing prompts, shared by founders who used them.</p>`,
+    caseStudy: `<h4>The Problem</h4><p>Asking AI for a business plan usually produces something that sounds smart and means nothing. Generic frameworks, hollow advice, and zero understanding of your specific situation. You don't get a strategy - you get a Wikipedia article about strategy. The problem is the prompt, and most founders don't know how to write one that works.</p><h4>The Solution</h4><p>Foundeck generates what we call "mega prompts" - comprehensive, structured AI instructions that force the model to engage seriously with your actual business situation. These aren't templates. They're interrogative prompts that account for your stage, your market, your competition, your constraints, and your unfair advantage.</p><h4>Who It's For</h4><p>First-time founders building their first real business plan. Operators who need a go-to-market document that doesn't read like it was written by committee. Branding and marketing leads who want AI to match their company's actual voice, not some platitude-ridden approximation of it.</p><h4>What's Next</h4><p>Industry-specific mega prompts. Integration with Nurj for stage-aware strategy generation. A community library of the highest-performing prompts, shared by founders who used them.</p>`,
     quiz: [
-      { q: "What is a 'mega prompt'?", opts: ["A very long prompt", "A structured prompt that forces quality, specific AI outputs", "A premium subscription tier", "An AI model name"], correct: 1 },
-      { q: "What does Foundeck primarily fix?", opts: ["Slow internet speeds", "Vague AI inputs that produce generic AI outputs", "Business registration paperwork", "Social media algorithms"], correct: 1 },
-      { q: "Which of these can Foundeck help generate?", opts: ["Tax filings", "Business plans, GTM strategies, branding briefs", "Code for mobile apps", "Employee payroll"], correct: 1 },
-      { q: "True or False: Foundeck requires you to already have a complete strategy before using it.", opts: ["True", "False"], correct: 1 },
-      { q: "What is the core insight behind Foundeck's design?", opts: ["AI is not useful for business", "Founders don't know what they don't know — the prompt fixes that gap", "Business plans are overrated", "GTM should come last"], correct: 1 }
+      { q: "How honestly would you describe your current AI prompting?", opts: ["I never use AI for business tasks", "I use it but results are often vague or generic", "I'm decent at prompts but it's inconsistent", "I have a working prompt system that delivers quality outputs"], correct: 1 },
+      { q: "What is a 'mega prompt' in Foundeck's system?", opts: ["An extra-long ChatGPT message", "A structured framework that forces AI to produce high-quality business outputs", "A prompt that runs multiple AI tools at once", "A prompt template you buy online"], correct: 1 },
+      { q: "Which business task is hardest to get right with generic AI prompting?", opts: ["Writing a simple email", "A GTM strategy, business plan, or full branding brief", "Making a social media post", "Summarizing a document"], correct: 1 },
+      { q: "True or false: Foundeck requires you to already know your business strategy to use it.", opts: ["True", "False"], correct: 1 },
+      { q: "What is the core insight behind Foundeck?", opts: ["Founders don't know how to type fast enough", "Vague inputs lead to generic outputs - structure is the missing layer", "AI models aren't powerful enough yet", "Business plans are overrated"], correct: 1 }
     ]
   },
   {
@@ -1725,16 +2099,16 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     section: 2,
     tag: "AI × Video Pre-Production", status: "invite",
     desc: "Turn raw text scripts into production-ready AI video prompts in seconds. Zing automatically handles strict clip limits and character consistency, saving directors hours of tedious formatting so they can focus on storytelling.",
-    story: "AI video is powerful but unruly. Directors were spending more time reformatting scripts than actually directing. Zing handles the technical constraints automatically — clip lengths, character consistency, voice assignments — so the creative work stays creative. Built for the people who make things, not the people who manage software.",
+    story: "AI video is powerful but unruly. Directors were spending more time reformatting scripts than actually directing. Zing handles the technical constraints automatically - clip lengths, character consistency, voice assignments - so the creative work stays creative. Built for the people who make things, not the people who manage software.",
     tech: ["React", "Veo 3", "Firebase", "Vercel"],
     url: "https://zing-video-manager.vercel.app/",
-    caseStudy: `<h4>The Problem</h4><p>Veo 3 and modern AI video models are extraordinary — but they're unruly. They have strict clip length limits. They lose character consistency between shots. They demand prompts written in a specific technical format that has nothing to do with how directors write scripts. Creative professionals were spending more time reformatting than directing.</p><h4>The Solution</h4><p>Zing takes a raw text script and converts it automatically into production-ready AI video prompts. It handles clip segmentation, character consistency mapping, voice assignment, and format compliance without you thinking about any of it. You write the story. Zing handles the machine.</p><h4>The Impact</h4><p>Beta directors have reported cutting their spool time — the time from script to first render — from over 40 minutes to under 6. That's not a small improvement. That's a workflow transformation.</p><h4>Who It's For</h4><p>Creative directors, content agencies, and brand teams producing AI video campaigns at scale. If you're making more than one video a week with AI, Zing isn't a nice-to-have. It's a necessity.</p>`,
+    caseStudy: `<h4>The Problem</h4><p>Veo 3 and modern AI video models are extraordinary - but they're unruly. They have strict clip length limits. They lose character consistency between shots. They demand prompts written in a specific technical format that has nothing to do with how directors write scripts. Creative professionals were spending more time reformatting than directing.</p><h4>The Solution</h4><p>Zing takes a raw text script and converts it automatically into production-ready AI video prompts. It handles clip segmentation, character consistency mapping, voice assignment, and format compliance without you thinking about any of it. You write the story. Zing handles the machine.</p><h4>The Impact</h4><p>Beta directors have reported cutting their spool time - the time from script to first render - from over 40 minutes to under 6. That's not a small improvement. That's a workflow transformation.</p><h4>Who It's For</h4><p>Creative directors, content agencies, and brand teams producing AI video campaigns at scale. If you're making more than one video a week with AI, Zing isn't a nice-to-have. It's a necessity.</p>`,
     quiz: [
-      { q: "What does Zing automatically handle?", opts: ["Script writing", "Clip limits and character consistency in AI video", "Video editing and color grading", "Social media posting"], correct: 1 },
-      { q: "Which AI video model is Zing optimized for?", opts: ["Sora", "Runway Gen-3", "Veo 3", "Pika"], correct: 2 },
-      { q: "How much did Zing reduce spool time for beta directors?", opts: ["From 4 hours to 1 hour", "From 40 minutes to under 6 minutes", "From 2 days to 1 day", "No change — still testing"], correct: 1 },
-      { q: "What does 'character consistency' mean in AI video?", opts: ["Making sure all characters are happy", "Keeping the same character looking the same across different shots", "Writing consistent dialogue", "Having the same number of characters per scene"], correct: 1 },
-      { q: "True or False: Zing requires a large production team to operate.", opts: ["True", "False"], correct: 1 }
+      { q: "What's your current relationship with AI video?", opts: ["I've never tried it", "I've tried it but the process is messy and slow", "I make AI videos but managing projects takes forever", "I have a smooth AI video production workflow"], correct: 1 },
+      { q: "What does Zing automatically handle that most creators manage manually?", opts: ["Writing video scripts", "Clip limits and character consistency across shots", "Social media scheduling", "Voice-over generation"], correct: 1 },
+      { q: "Which AI video model is Zing specifically optimized for?", opts: ["Runway Gen-3", "Sora", "Veo 3", "Pika Labs"], correct: 2 },
+      { q: "How much does Zing reduce typical AI video spool time?", opts: ["From 40 minutes to under 6 minutes", "From 2 hours to 30 minutes", "From 10 minutes to 2 minutes", "From 1 hour to 15 minutes"], correct: 0 },
+      { q: "True or false: Zing requires a large production team to operate effectively.", opts: ["True", "False"], correct: 1 }
     ]
   },
   {
@@ -1742,51 +2116,63 @@ let APPS = JSON.parse(localStorage.getItem('zee_apps') || 'null') || [
     section: 2,
     tag: "Fintech × MSME", status: "building",
     desc: "Most Nigerian small businesses run on memory and paper. Kobo gives them a simple WhatsApp tool to track money in and out, stay tax-ready, and actually qualify for business loans.",
-    story: "Nigerian market traders move serious money every day but they're completely invisible to banks — no records, no history, no credit. Kobo fixes that through WhatsApp, the one app they already live on. Record a sale, generate an invoice, build a credit profile. Simple as sending a voice note.",
+    story: "Nigerian market traders move serious money every day but they're completely invisible to banks - no records, no history, no credit. Kobo fixes that through WhatsApp, the one app they already live on. Record a sale, generate an invoice, build a credit profile. Simple as sending a voice note.",
     tech: ["WhatsApp API", "Node.js", "Paystack"],
     url: "https://kobo-1.vercel.app/",
-    caseStudy: `<h4>The Problem</h4><p>There are millions of market traders and small business owners in Lagos running serious money through their hands every single day. They know their business. They don't have records. Banks don't see them. Microfinance institutions don't trust them. They can't get loans, can't scale, can't protect themselves. Not because they're not viable — because they're invisible.</p><h4>The Solution</h4><p>Kobo is a WhatsApp-native financial OS for Nigerian micro and small businesses. No app to download. No dashboard to learn. The interface is a conversation — the same one they're already having on their phones every day. Record a sale by texting it. Generate an invoice by asking. Build a tax-ready record by just... doing business normally.</p><h4>Why WhatsApp?</h4><p>Because that's where Nigerian MSMEs already live. Over 90% of small business communication in Nigeria happens on WhatsApp. Meeting people where they are isn't a design philosophy here — it's a business requirement.</p><h4>What It Unlocks</h4><p>Six months of transaction records = your first loan application. A year of consistent invoicing = your first credit profile. Kobo doesn't just manage money — it builds the financial identity that lets small businesses stop being invisible.</p>`,
+    caseStudy: `<h4>The Problem</h4><p>There are millions of market traders and small business owners in Lagos running serious money through their hands every single day. They know their business. They don't have records. Banks don't see them. Microfinance institutions don't trust them. They can't get loans, can't scale, can't protect themselves. Not because they're not viable - because they're invisible.</p><h4>The Solution</h4><p>Kobo is a WhatsApp-native financial OS for Nigerian micro and small businesses. No app to download. No dashboard to learn. The interface is a conversation - the same one they're already having on their phones every day. Record a sale by texting it. Generate an invoice by asking. Build a tax-ready record by just... doing business normally.</p><h4>Why WhatsApp?</h4><p>Because that's where Nigerian MSMEs already live. Over 90% of small business communication in Nigeria happens on WhatsApp. Meeting people where they are isn't a design philosophy here - it's a business requirement.</p><h4>What It Unlocks</h4><p>Six months of transaction records = your first loan application. A year of consistent invoicing = your first credit profile. Kobo doesn't just manage money - it builds the financial identity that lets small businesses stop being invisible.</p>`,
     quiz: [
-      { q: "What platform does Kobo operate on?", opts: ["A dedicated mobile app", "WhatsApp", "A web browser dashboard", "SMS"], correct: 1 },
-      { q: "What compliance feature does Kobo include?", opts: ["Pension fund management", "FIRS/LIRS tax readiness", "Corporate governance reports", "Stock market integration"], correct: 1 },
-      { q: "What long-term goal does consistent Kobo usage help achieve?", opts: ["Getting a government contract", "Building a credit profile for microfinance loans", "Replacing a bank account", "Automated tax filing"], correct: 1 },
-      { q: "Why was WhatsApp chosen as the interface?", opts: ["It's the cheapest option", "90%+ of Nigerian MSME communication already happens on WhatsApp", "It was a client requirement", "There was no other option"], correct: 1 },
-      { q: "True or False: Kobo requires users to download a separate app.", opts: ["True", "False"], correct: 1 }
+      { q: "How do you currently track money in your business?", opts: ["I don't - it's a blur at month end", "WhatsApp messages and mental notes", "An Excel or Google Sheet I update sometimes", "Paid accounting software like QuickBooks"], correct: 1 },
+      { q: "What platform does Kobo run on (the one 90%+ of Nigerian MSMEs already use daily)?", opts: ["Instagram DM", "Telegram", "WhatsApp", "Email"], correct: 2 },
+      { q: "What compliance feature does Kobo include?", opts: ["CBN foreign transfer reporting", "FIRS and LIRS tax-readiness tracking", "CAC annual returns filing", "Pension fund compliance"], correct: 1 },
+      { q: "What long-term goal does consistent Kobo usage help you build toward?", opts: ["A verified social media presence", "A credit profile for microfinance loans", "A USSD payment shortcode", "An e-commerce store"], correct: 1 },
+      { q: "True or false: Kobo requires a separate app download to use.", opts: ["True", "False"], correct: 1 }
     ]
   },
   {
     id: 6, name: "GAC Motors CRM",
     section: 2,
     tag: "Enterprise × Automation", status: "shipped",
-    desc: "GAC Motors needed a way to track customers, jobs, and follow-ups — without buying expensive software. Built a full workshop management system in Excel with WhatsApp reminders built in.",
-    story: "I work at the dealership. I see it every day — jobs slipping through, customers not followed up, parts untracked, estimates rewritten from memory. Rather than waiting for management to buy expensive software, I just built what the workshop needed. Excel, done properly, with WhatsApp built in.",
+    desc: "GAC Motors needed a way to track customers, jobs, and follow-ups - without buying expensive software. Built a full workshop management system in Excel with WhatsApp reminders built in.",
+    story: "I work at the dealership. I see it every day - jobs slipping through, customers not followed up, parts untracked, estimates rewritten from memory. Rather than waiting for management to buy expensive software, I just built what the workshop needed. Excel, done properly, with WhatsApp built in.",
     tech: ["Excel", "VBA", "WhatsApp"],
     url: null, preview: "gac",
-    caseStudy: `<h4>The Origin</h4><p>I built this because I work there. Not as a case study exercise — as an act of not being able to watch a broken process run badly for one more day. Workshop jobs were falling through cracks. Customers weren't being followed up. Parts were being reordered from memory because nobody tracked inventory. Estimates were rewritten every time because the last one wasn't saved anywhere sensible.</p><h4>The Solution</h4><p>A full workshop management system built entirely in Microsoft Excel, with VBA automations and WhatsApp integration for customer follow-ups. No Salesforce. No custom software. No IT department. Just Excel done properly — with automated job tracking, customer history, parts log, labour time, invoicing, and WhatsApp notification triggers that run without the workshop team needing to think about them.</p><h4>Why This Matters</h4><p>Most people treat Excel as a table. This is Excel as an operational backbone. The same principles that make expensive CRMs valuable — visibility, accountability, follow-through — can be built in a spreadsheet if you know what you're doing. Across Africa, thousands of dealerships and workshops are running the same broken paper process this was built to replace.</p><h4>Status</h4><p>Running in production at CIG Motors, the GAC dealership in Lagos. Not public. Contact me if your workshop needs the same.</p>`,
+    caseStudy: `<h4>The Origin</h4><p>I built this because I work there. Not as a case study exercise - as an act of not being able to watch a broken process run badly for one more day. Workshop jobs were falling through cracks. Customers weren't being followed up. Parts were being reordered from memory because nobody tracked inventory. Estimates were rewritten every time because the last one wasn't saved anywhere sensible.</p><h4>The Solution</h4><p>A full workshop management system built entirely in Microsoft Excel, with VBA automations and WhatsApp integration for customer follow-ups. No Salesforce. No custom software. No IT department. Just Excel done properly - with automated job tracking, customer history, parts log, labour time, invoicing, and WhatsApp notification triggers that run without the workshop team needing to think about them.</p><h4>Why This Matters</h4><p>Most people treat Excel as a table. This is Excel as an operational backbone. The same principles that make expensive CRMs valuable - visibility, accountability, follow-through - can be built in a spreadsheet if you know what you're doing. Across Africa, thousands of dealerships and workshops are running the same broken paper process this was built to replace.</p><h4>Status</h4><p>Running in production at CIG Motors, the GAC dealership in Lagos. Not public. Contact me if your workshop needs the same.</p>`,
     quiz: [
-      { q: "What software stack is the GAC CRM built on?", opts: ["Salesforce + HubSpot", "Excel + VBA + WhatsApp", "Google Sheets + Zapier", "Notion + Slack"], correct: 1 },
-      { q: "Where is this CRM deployed?", opts: ["As a public SaaS product", "At CIG Motors (GAC dealership in Lagos)", "As an open-source project", "At three different dealerships"], correct: 1 },
-      { q: "What was the core pain that triggered building this?", opts: ["The company asked for it", "Jobs falling through cracks, no follow-up, rewritten estimates", "A hackathon brief", "An investor requirement"], correct: 1 },
-      { q: "True or False: You need expensive enterprise software to manage a Nigerian workshop.", opts: ["True", "False"], correct: 1 },
-      { q: "What does the WhatsApp integration handle?", opts: ["Marketing campaigns", "Customer follow-up notifications", "Staff payroll reminders", "Parts ordering"], correct: 1 }
+      { q: "Does your work touch automotive sales, dealerships, or vehicle service?", opts: ["No - I'm in a different industry", "Yes - workshop, showroom, or dealership", "Adjacent - parts supply, logistics, or fleet", "Not directly, but I work with businesses that do"], correct: 1 },
+      { q: "What stack powers the GAC Motors CRM?", opts: ["Salesforce + Zapier", "Excel + VBA + WhatsApp integration", "HubSpot + SMS automation", "Custom-built SaaS dashboard"], correct: 1 },
+      { q: "What was the core pain that triggered building this system?", opts: ["Salespeople spending too much time on social media", "Jobs falling through the cracks - no follow-up, estimates rewritten from memory", "Inventory tracking taking too long", "Walk-in customers not getting immediate quotes"], correct: 1 },
+      { q: "What does the WhatsApp integration in the CRM handle?", opts: ["Customer invoicing and payment collection", "Automated customer follow-up notifications after service", "Staff attendance tracking", "Live chat with multiple customers simultaneously"], correct: 1 },
+      { q: "True or false: The GAC CRM requires expensive enterprise software licenses.", opts: ["True", "False"], correct: 1 }
     ]
   },
   {
     id: 7, name: "Wokbook",
     section: 3,
     tag: "AI × Learning", status: "building",
-    desc: "A learning-first LLM prompt optimizer that combines a text generation engine with a mastery course. Write better prompts, get better outputs — with a built-in curriculum that levels you up as you go.",
-    story: "Most people use AI like a search engine and get search engine results. Wokbook teaches you how to actually use it — not through theory but through doing. Generate, learn, retry, master. The course and the tool are the same thing.",
+    desc: "A learning-first LLM prompt optimizer that combines a text generation engine with a mastery course. Write better prompts, get better outputs - with a built-in curriculum that levels you up as you go.",
+    story: "Most people use AI like a search engine and get search engine results. Wokbook teaches you how to actually use it - not through theory but through doing. Generate, learn, retry, master. The course and the tool are the same thing.",
     tech: ["Next.js", "Gemini Flash", "Vercel"],
     url: null,
-    caseStudy: `<h4>The Idea</h4><p>Everyone is using AI wrong. Not intentionally — they just haven't been shown how to use it right. Wokbook is what happens when you build the course and the tool in the same place: you don't learn prompting by reading about it, you learn it by doing it, seeing what breaks, understanding why, and leveling up in real-time.</p><h4>Why It's Different</h4><p>Most prompt engineering courses are passive. You watch a video, you nod, and then you go back to typing the same bad prompts you always typed. Wokbook builds the learning into the generation loop itself. Every time you generate something, the system helps you understand why it worked or didn't — and shows you the adjusted version that would have worked better.</p><h4>The Tech</h4><p>Built on Gemini Flash for speed and cost, Next.js for the full-stack framework, hosted on Vercel. The curriculum engine is proprietary — a dynamic scaffold that adapts to where the user keeps going wrong.</p><h4>Status</h4><p>In active development. Joining the pipeline list here is your ticket to the front of the waitlist when it opens. No spam. Just a message when it's ready.</p>`,
+    caseStudy: `<h4>The Idea</h4><p>Everyone is using AI wrong. Not intentionally - they just haven't been shown how to use it right. Wokbook is what happens when you build the course and the tool in the same place: you don't learn prompting by reading about it, you learn it by doing it, seeing what breaks, understanding why, and leveling up in real-time.</p><h4>Why It's Different</h4><p>Most prompt engineering courses are passive. You watch a video, you nod, and then you go back to typing the same bad prompts you always typed. Wokbook builds the learning into the generation loop itself. Every time you generate something, the system helps you understand why it worked or didn't - and shows you the adjusted version that would have worked better.</p><h4>The Tech</h4><p>Built on Gemini Flash for speed and cost, Next.js for the full-stack framework, hosted on Vercel. The curriculum engine is proprietary - a dynamic scaffold that adapts to where the user keeps going wrong.</p><h4>Status</h4><p>In active development. Joining the pipeline list here is your ticket to the front of the waitlist when it opens. No spam. Just a message when it's ready.</p>`,
     quiz: [
-      { q: "What is Wokbook's core learning philosophy?", opts: ["Passive video courses", "Learning by doing — generate, see, understand, improve", "Reading documentation", "Weekly webinars"], correct: 1 },
-      { q: "What AI model powers Wokbook?", opts: ["GPT-4o", "Claude", "Gemini Flash", "Llama 3"], correct: 2 },
-      { q: "What makes Wokbook different from standard prompt courses?", opts: ["It's cheaper", "The course IS the tool — learning is built into the generation loop", "It has more modules", "It's created by a famous YouTuber"], correct: 1 },
-      { q: "True or False: Wokbook is currently available to the public.", opts: ["True", "False"], correct: 1 },
-      { q: "Who is Wokbook designed to help?", opts: ["Professional programmers", "People using AI like a search engine and getting search engine results", "AI researchers", "Social media managers only"], correct: 1 }
+      { q: "If you're honest - how do you use AI tools right now?", opts: ["I don't use them", "Like a search engine - I ask, I get, I paste", "I experiment but results are inconsistent", "I craft prompts carefully and get reliable outputs"], correct: 1 },
+      { q: "What is Wokbook's core learning philosophy?", opts: ["Watch tutorials, then practice on your own", "Read the documentation first", "Learn by doing - generate, see the result, understand why, then improve it", "Study prompt theory before touching any AI tool"], correct: 2 },
+      { q: "Which AI model powers Wokbook's learning engine?", opts: ["GPT-4o", "Claude Sonnet", "Gemini Flash", "Mixtral"], correct: 2 },
+      { q: "What would make AI prompting most valuable to you right now?", opts: ["Getting academic certificates in AI", "Getting faster, better business results without needing to be technical", "Impressing people at networking events", "Understanding how large language models work internally"], correct: 1 },
+      { q: "What makes Wokbook different from a standard prompt engineering course?", opts: ["It's cheaper than most courses", "The course IS the tool - you learn by using AI, not by studying about it", "It teaches Python alongside prompting", "It has live tutors available 24/7"], correct: 1 }
     ]
+  },
+  {
+    id: 8, name: "Vendr",
+    section: 3,
+    tag: "??? × ???", status: "building",
+    desc: "We're not telling you. That's the point. Look at the name. Take your best guess - there are Zeeng points in it for you if you're close.",
+    story: null,
+    tech: [],
+    url: null,
+    caseStudy: null,
+    quiz: null,
+    isVendr: true
   }
 ];
 
@@ -1829,7 +2215,13 @@ function renderApps() {
 
     // ── preview block ──────────────────────────────────────────────────────
     let previewHTML = '';
-    if (app.preview === 'gac') {
+    if (app.isVendr) {
+      previewHTML = `
+        <div class="vendr-mystery-preview">
+          <div class="vendr-mystery-mark">?</div>
+          <div class="vendr-mystery-label">Identity Classified</div>
+        </div>`;
+    } else if (app.preview === 'gac') {
       previewHTML = `
         <div class="gac-preview">
           <div class="gac-preview-row">
@@ -1908,10 +2300,16 @@ function renderApps() {
 
     // ── quiz badge ─────────────────────────────────────────────────────────
     const zeengDone = ZEENG.completed[app.id];
-    const quizBadge = app.quiz ? (zeengDone
-      ? `<span class="zeeng-quiz-done" title="Quiz complete!">⚡ ${zeengDone.points} pts earned</span>`
-      : `<button type="button" class="zeeng-quiz-btn" onclick="openAppPanel(${app.id});event.stopPropagation();">Take Quiz → Earn Points</button>`
-    ) : '';
+    let quizBadge = '';
+    if (app.isVendr) {
+      quizBadge = zeengDone
+        ? `<span class="zeeng-quiz-done" title="Guess submitted!">⚡ ${zeengDone.points} pts earned</span>`
+        : `<button type="button" class="zeeng-quiz-btn" onclick="openAppPanel(${app.id});event.stopPropagation();">Guess the concept → +50 pts</button>`;
+    } else if (app.quiz) {
+      quizBadge = zeengDone
+        ? `<span class="zeeng-quiz-done" title="Quiz complete!">⚡ ${zeengDone.points} pts earned</span>`
+        : `<button type="button" class="zeeng-quiz-btn" onclick="openAppPanel(${app.id});event.stopPropagation();">Take Quiz → Earn Points</button>`;
+    }
 
     const card = document.createElement('div');
     card.className = 'app-card reveal';
@@ -2009,7 +2407,7 @@ function drawCursor() {
     ctx.fill();
   }
 
-  // ring — lags behind mouse
+  // ring - lags behind mouse
   const targetR = isHovering ? 28 : isClicking ? 10 : 18;
   ring.x = lerp(ring.x, mouse.x, 0.14);
   ring.y = lerp(ring.y, mouse.y, 0.14);
@@ -2021,7 +2419,7 @@ function drawCursor() {
   ctx.lineWidth = isHovering ? 1.5 : 1;
   ctx.stroke();
 
-  // inner cross-dot — snaps to mouse immediately
+  // inner cross-dot - snaps to mouse immediately
   dot.x = lerp(dot.x, mouse.x, 0.55);
   dot.y = lerp(dot.y, mouse.y, 0.55);
 
@@ -2102,14 +2500,82 @@ function closeMobileMenu() {
   document.body.style.overflow = '';
 }
 
-/* ── STORY TOGGLE (touch devices) ── */
+
+/* ── SECTION COLLAPSE TOGGLE ── */
+function toggleSection(name) {
+  const map = {
+    shipped:  { body: 'body-shipped',  btn: 'toggle-shipped'  },
+    beta:     { body: 'body-beta',     btn: 'toggle-beta'     },
+    pipeline: { body: 'body-pipeline', btn: 'toggle-pipeline' },
+    about:    { body: 'body-about',    btn: 'toggle-about'    },
+  };
+  const cfg = map[name];
+  if (!cfg) return;
+  const body = document.getElementById(cfg.body);
+  const btn  = document.getElementById(cfg.btn);
+  if (!body) return;
+  const open = body.classList.toggle('open');
+  if (btn) btn.classList.toggle('open', open);
+  // Re-run reveal observers so items inside get their entrance animation
+  if (open) setTimeout(observeReveal, 100);
+}
+
+/* ── VENDR GUESS FORM ── */
+function toggleVendrGuessOpt(el) {
+  el.classList.toggle('selected');
+}
+
+function submitVendrGuess() {
+  if (ZEENG.completed[8]) return;
+  const textEl = document.getElementById('vendr-guess-text');
+  const text = textEl ? textEl.value.trim() : '';
+  const selectedOpts = [...document.querySelectorAll('.vgf-opt.selected')].map(b => b.dataset.cat);
+  if (!text && selectedOpts.length === 0) {
+    alert("Type something or pick a category first - we need your actual guess.");
+    return;
+  }
+  const btn = document.getElementById('vendr-guess-submit');
+  if (btn) { btn.disabled = true; btn.textContent = 'Submitting...'; }
+
+  fetch('https://formspree.io/f/xjgjabwv', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      _subject: '[Vendr] Build Challenge Guess',
+      guess_text: text || '(no text)',
+      guess_categories: selectedOpts.join(', ') || 'none selected',
+      source: 'portfolio_build_challenge_stage1'
+    })
+  }).then(r => {
+    if (r.ok) {
+      ZEENG.add(8, 1, 1, 'Vendr');
+      const result = document.getElementById('vendr-guess-result');
+      if (result) {
+        result.hidden = false;
+        result.innerHTML = `<div class="quiz-complete">
+          <div class="quiz-complete-icon">⚡</div>
+          <div class="quiz-complete-score">Guess submitted. We've got it.</div>
+          <div class="quiz-complete-pts">50 Zeeng Points earned. We'll keep score when the app launches.</div>
+          <button class="quiz-redeem-btn" onclick="openRedeemForm()">Redeem Points →</button>
+        </div>`;
+      }
+      if (btn) btn.style.display = 'none';
+      // Update the card's quiz badge
+      renderApps();
+    } else {
+      if (btn) { btn.disabled = false; btn.textContent = 'Try again →'; }
+    }
+  }).catch(() => {
+    if (btn) { btn.disabled = false; btn.textContent = 'Try again →'; }
+  });
+}
+
+/* ── STORY TOGGLE - opens the full case study + quiz panel ── */
 function toggleStory(btn) {
-  const card  = btn.closest('.app-card');
-  const story = card ? card.querySelector('[data-story]') : null;
-  if (!story) return;
-  const open = story.classList.toggle('visible');
-  btn.textContent = open ? 'Note ↑' : 'Note ↓';
-  btn.setAttribute('aria-label', open ? 'Hide founder note' : 'Show founder note');
+  const card = btn.closest('.app-card');
+  if (!card) return;
+  const appId = parseInt(card.getAttribute('data-app-id'));
+  if (appId) openAppPanel(appId);
 }
 
 function openContactModal() {
@@ -2138,7 +2604,7 @@ function submitContactForm() {
   const btn = document.getElementById('cf-submit');
   btn.disabled = true; btn.textContent = 'Sending...';
   const labels = { partnership:'Build together', testing:'App testing', investor:'Investor', contract:'Contract work', idea:'Got an idea', other:'Other' };
-  const subject = encodeURIComponent(`[Portfolio] ${labels[type]||'New message'} — ${name}`);
+  const subject = encodeURIComponent(`[Portfolio] ${labels[type]||'New message'} - ${name}`);
   const body = encodeURIComponent(`Hi Zee,\n\nName: ${name}\nEmail: ${email}\nType: ${labels[type]||type}\n\n${message}\n\n---\nSent from your portfolio.`);
   window.open(`mailto:madebyyouni@gmail.com?subject=${subject}&body=${body}`, '_blank');
   document.getElementById('contact-form-wrap').style.display = 'none';
@@ -2149,7 +2615,7 @@ document.getElementById('contact-modal')?.addEventListener('click', function(e) 
 // ── ADMIN AUTH ─────────────────────────────────────────────────────────────────
 const ADMIN_HASH = 'de8290d4d35d437e1105d100b60e74113f97b2eb';
 
-// ── SECRET ADMIN TRIGGER — tap ZEE.DEV logo 7 times ─────────────────────────
+// ── SECRET ADMIN TRIGGER - tap ZEE.DEV logo 7 times ─────────────────────────
 let zTapCount = 0;
 let zTapTimer = null;
 const Z_TARGET = 7;
@@ -2163,7 +2629,7 @@ document.addEventListener('DOMContentLoaded', function() {
     clearTimeout(zTapTimer);
     if (zTapCount >= Z_TARGET) {
       zTapCount = 0;
-      // Confirm flash — logo goes green for a moment
+      // Confirm flash - logo goes green for a moment
       logo.style.color = '#4caf7d';
       logo.style.letterSpacing = '0.3em';
       setTimeout(() => { logo.style.color = ''; logo.style.letterSpacing = ''; }, 600);
@@ -2237,7 +2703,7 @@ async function checkPin() {
     closePasswordModal();
     grantAdminAccess('madebyyouni@gmail.com');
   } else {
-    document.getElementById('pin-error').textContent = 'Wrong password — try again.';
+    document.getElementById('pin-error').textContent = 'Wrong password - try again.';
     document.getElementById('pin-input').value = '';
     document.getElementById('pin-input').focus();
   }
@@ -2277,7 +2743,7 @@ async function deployToGitHub() {
     const data = await res.json();
     if (res.ok && data.success) {
       btn.textContent = '✓ Deployed'; btn.className = 'deploy-btn success';
-      addMsg('ai', '✅ Committed to GitHub! Vercel is deploying now — live in ~30 seconds.' +
+      addMsg('ai', '✅ Committed to GitHub! Vercel is deploying now - live in ~30 seconds.' +
         (data.commit ? ` <a href="${data.commit}" target="_blank" style="color:var(--amber)">View commit →</a>` : ''));
       setTimeout(() => { btn.disabled = false; btn.textContent = '↑ Deploy'; btn.className = 'deploy-btn'; }, 4000);
     } else { throw new Error(data.error || 'Deploy failed'); }
@@ -2297,7 +2763,7 @@ function togglePanel() {
   document.getElementById('admin-panel').classList.toggle('open', panelOpen);
   if (panelOpen && history.length === 0) {
     addMsg('ai', `Welcome back, Zee! 👋 Your portfolio is looking good.<br><br>Tell me what to do:
-<br><br>• <code>Add [App Name] — description. Status: live/beta/building. Tech: X, Y.</code>
+<br><br>• <code>Add [App Name] - description. Status: live/beta/building. Tech: X, Y.</code>
 <br>• <code>Remove [App Name]</code>
 <br>• <code>Update [App Name]: change this...</code>
 <br>• <code>List all apps</code>
@@ -2342,10 +2808,10 @@ Current apps:
 ${JSON.stringify(APPS, null, 2)}
 
 You can:
-1. ADD apps — when user says "add [name]", extract: name, tag (category), status (live/beta/building/shipped), desc (2-3 sentences max), tech (array), url (optional).
-2. REMOVE apps — when user says "remove [name]".
-3. UPDATE apps — when user says "update [name]", modify specific fields.
-4. LIST apps — show a summary.
+1. ADD apps - when user says "add [name]", extract: name, tag (category), status (live/beta/building/shipped), desc (2-3 sentences max), tech (array), url (optional).
+2. REMOVE apps - when user says "remove [name]".
+3. UPDATE apps - when user says "update [name]", modify specific fields.
+4. LIST apps - show a summary.
 
 When you perform an action, respond with a JSON block AND a human message, in this format:
 ACTION: [ADD|REMOVE|UPDATE|NONE]
@@ -2530,7 +2996,7 @@ function scrollStep() {
     return;
   }
 
-  // single image — bounce up and down forever
+  // single image - bounce up and down forever
   if (slides.length === 1) {
     scrollY += SCROLL_PX * scrollDir;
     if (scrollY >= scrollMax) {
@@ -2546,7 +3012,7 @@ function scrollStep() {
     rafId = requestAnimationFrame(scrollStep);
     return;
   }
-  // multi-image — scroll down, then swipe to next slide
+  // multi-image - scroll down, then swipe to next slide
   scrollY += SCROLL_PX;
   if (scrollY >= scrollMax) {
     scrollY = scrollMax;
@@ -2668,7 +3134,7 @@ function attachPreviewListeners() {
 
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
-// Hero animates in on load — staggered
+// Hero animates in on load - staggered
 setTimeout(() => document.querySelector('.hero-eyebrow')?.classList.add('visible'), 100);
 setTimeout(() => document.querySelector('.hero-title')?.classList.add('visible'), 300);
 document.querySelectorAll('.hero-stat').forEach((el, i) => {
@@ -2738,24 +3204,60 @@ function openAppPanel(appId) {
 
   title.textContent = app.name;
   tag.textContent = app.tag;
-  cs.innerHTML = app.caseStudy || '<p>Case study coming soon.</p>';
-
-  // Render quiz
-  if (app.quiz && app.quiz.length) {
+  // Vendr: mystery app - show guess form instead of case study + quiz
+  if (app.isVendr) {
     const done = ZEENG.completed[appId];
+    cs.innerHTML = `<div class="vendr-mystery-preview" style="margin-bottom:1.5rem;border-radius:6px;overflow:hidden;">
+      <div class="vendr-mystery-mark">?</div>
+      <div class="vendr-mystery-label">Identity Classified</div>
+    </div>`;
     if (done) {
-      qz.innerHTML = `
-        <div class="quiz-complete">
-          <div class="quiz-complete-icon">⚡</div>
-          <div class="quiz-complete-score">${done.score} / ${done.total} correct</div>
-          <div class="quiz-complete-pts">${done.points} Zeeng Points earned</div>
-          <button class="quiz-redeem-btn" onclick="openRedeemForm()">Redeem Points →</button>
-        </div>`;
+      qz.innerHTML = `<div class="quiz-complete">
+        <div class="quiz-complete-icon">⚡</div>
+        <div class="quiz-complete-score">Your guess is in. We've got it.</div>
+        <div class="quiz-complete-pts">\${done.points} Zeeng Points earned. Come back when the scope drops - more challenges unlock.</div>
+        <button class="quiz-redeem-btn" onclick="openRedeemForm()">Redeem Points →</button>
+      </div>`;
     } else {
-      qz.innerHTML = renderQuiz(app);
+      qz.innerHTML = `<div class="vendr-guess-form">
+        <div class="vgf-header">
+          <div class="vgf-eyebrow">The Build Challenge - Stage 1 · Active Now</div>
+          <h3>What is Vendr?</h3>
+          <p>The name is all you get. Take your best guess at what this app does. Get close - earn 50 Zeeng points. No hints, no clues. Just the name.</p>
+        </div>
+        <textarea id="vendr-guess-text" placeholder="Vendr is a tool that helps people..." rows="3"></textarea>
+        <div class="vgf-or">or pick the closest category</div>
+        <div class="vgf-options" id="vendr-guess-opts">
+          <button class="vgf-opt" data-cat="marketplace" onclick="toggleVendrGuessOpt(this)">Marketplace / Commerce</button>
+          <button class="vgf-opt" data-cat="b2b" onclick="toggleVendrGuessOpt(this)">B2B SaaS</button>
+          <button class="vgf-opt" data-cat="fintech" onclick="toggleVendrGuessOpt(this)">Payments / Fintech</button>
+          <button class="vgf-opt" data-cat="productivity" onclick="toggleVendrGuessOpt(this)">Productivity Tools</button>
+          <button class="vgf-opt" data-cat="ai" onclick="toggleVendrGuessOpt(this)">AI-powered App</button>
+          <button class="vgf-opt" data-cat="other" onclick="toggleVendrGuessOpt(this)">Something else</button>
+        </div>
+        <button class="quiz-submit-btn" id="vendr-guess-submit" onclick="submitVendrGuess()">Submit Guess → Earn 50 pts</button>
+        <div id="vendr-guess-result" hidden></div>
+      </div>`;
     }
   } else {
-    qz.innerHTML = '';
+    cs.innerHTML = app.caseStudy || '<p>Case study coming soon.</p>';
+
+    // Render quiz
+    if (app.quiz && app.quiz.length) {
+      const done = ZEENG.completed[appId];
+      if (done) {
+        qz.innerHTML = `<div class="quiz-complete">
+          <div class="quiz-complete-icon">⚡</div>
+          <div class="quiz-complete-score">\${done.score} / \${done.total} correct</div>
+          <div class="quiz-complete-pts">\${done.points} Zeeng Points earned</div>
+          <button class="quiz-redeem-btn" onclick="openRedeemForm()">Redeem Points →</button>
+        </div>`;
+      } else {
+        qz.innerHTML = renderQuiz(app);
+      }
+    } else {
+      qz.innerHTML = '';
+    }
   }
 
   panel.classList.add('open');
@@ -2900,7 +3402,7 @@ function submitRedeem(e) {
       '<div class="redeem-success">' +
       '<div class="redeem-success-icon">⚡</div>' +
       '<h3>Already submitted!</h3>' +
-      '<p>You already sent a redemption from this browser. I have it — I\'ll be in touch.</p>' +
+      '<p>You already sent a redemption from this browser. I have it - I\'ll be in touch.</p>' +
       '</div>';
     return;
   }
@@ -2917,7 +3419,7 @@ function submitRedeem(e) {
   data.set('zeeng_points_claimed', claimedPts);
   data.set('zeeng_points_total', ZEENG.points);
   data.set('points_cap_applied', ZEENG.points > REDEEM_CAP
-    ? 'YES — capped from ' + ZEENG.points : 'No cap');
+    ? 'YES - capped from ' + ZEENG.points : 'No cap');
   data.set('quiz_breakdown', breakdown);
   data.set('submission_source', 'gotozee.vercel.app · Zeeng quiz redemption');
 
@@ -2934,7 +3436,7 @@ function submitRedeem(e) {
         '<div class="redeem-success">' +
         '<div class="redeem-success-icon">⚡</div>' +
         '<h3>Zeeng Points Redeemed!</h3>' +
-        '<p>' + firstName + ', I have your ' + claimedPts + ' points locked in. I’ll be in touch to honour your reward. One request per person — I appreciate you not testing that.</p>' +
+        '<p>' + firstName + ', I have your ' + claimedPts + ' points locked in. I’ll be in touch to honour your reward. One request per person - I appreciate you not testing that.</p>' +
         '</div>';
     } else {
       alert('Something went wrong. Email madebyyouni@gmail.com with your score and I’ll sort it.');
@@ -3016,7 +3518,7 @@ attachPreviewListeners();
       <span class="redeem-pts-word">points</span>
     </div>
     <p class="redeem-breakdown" id="redeem-breakdown"></p>
-    <p class="redeem-explain">Points are redeemable for: 3 months free access to an app, a beta tester slot, or merch/digital downloads (coming soon). Max 250 pts per request — one redemption per person. Fill in your details and I'll get back to you.</p>
+    <p class="redeem-explain">Points are redeemable for: 3 months free access to an app, a beta tester slot, or merch/digital downloads (coming soon). Max 250 pts per request - one redemption per person. Fill in your details and I'll get back to you.</p>
     <form id="redeem-form" onsubmit="submitRedeem(event)">
       <div class="redeem-field">
         <label for="redeem-name">Your Name</label>
