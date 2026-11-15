@@ -4582,6 +4582,16 @@ attachPreviewListeners();
     }
     if (document.getElementById('contact-form')) {
       formspree('initForm', { formElement: '#contact-form', formId: 'xjgjabwv' });
+      // Also send a copy to /api/contact for an AI-triaged alert with a drafted reply.
+      // Capture phase + keepalive: runs alongside Formspree and never blocks or changes it.
+      document.getElementById('contact-form').addEventListener('submit', function() {
+        try {
+          var v = function(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+          var payload = { name: v('cf-name'), email: v('cf-email'), type: v('cf-type'), message: v('cf-message') };
+          if (!payload.name || !payload.email || !payload.message) return;
+          fetch('/api/contact', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).catch(function() {});
+        } catch (e) {}
+      }, true);
     }
   });
 </script>
