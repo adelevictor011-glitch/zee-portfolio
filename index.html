@@ -3734,14 +3734,24 @@ document.getElementById('password-modal').addEventListener('click', function(e) 
 
 
 // ── GITHUB AUTO-DEPLOY ────────────────────────────────────────────────────────
-const DEPLOY_SECRET = 'PASTE_YOUR_DEPLOY_SECRET_HERE'; // ← replace before going live
+// The deploy secret is NEVER written into this public page (anyone could read it and commit to your repo).
+// You type it once per browser session; it stays in sessionStorage and is gone when the tab closes.
+function getDeploySecret() {
+  let s = sessionStorage.getItem('zee_deploy_secret');
+  if (!s) {
+    s = (window.prompt('Deploy secret (the DEPLOY_SECRET value you set in Vercel):') || '').trim();
+    if (s) sessionStorage.setItem('zee_deploy_secret', s);
+  }
+  return s;
+}
 
 async function deployToGitHub() {
   const btn = document.getElementById('deploy-btn');
   if (!btn) return;
 
-  if (!DEPLOY_SECRET || DEPLOY_SECRET.includes('PASTE_YOUR')) {
-    addMsg('ai', '⚠️ Deploy secret not set. Open <code>index.html</code>, find <code>DEPLOY_SECRET</code> and replace the placeholder with the value you set in Vercel dashboard.');
+  const DEPLOY_SECRET = getDeploySecret();
+  if (!DEPLOY_SECRET) {
+    addMsg('ai', '⚠️ Deploy cancelled: no deploy secret entered.');
     return;
   }
   btn.disabled = true; btn.textContent = '↑ Deploying...'; btn.className = 'deploy-btn deploying';
@@ -3757,7 +3767,10 @@ async function deployToGitHub() {
       addMsg('ai', '✅ Committed to GitHub! Vercel is deploying now - live in ~30 seconds.' +
         (data.commit ? ` <a href="${data.commit}" target="_blank" style="color:var(--amber)">View commit →</a>` : ''));
       setTimeout(() => { btn.disabled = false; btn.textContent = '↑ Deploy'; btn.className = 'deploy-btn'; }, 4000);
-    } else { throw new Error(data.error || 'Deploy failed'); }
+    } else {
+      if (res.status === 401) sessionStorage.removeItem('zee_deploy_secret'); // wrong secret: ask again next time
+      throw new Error(data.error || 'Deploy failed');
+    }
   } catch(err) {
     btn.textContent = '✗ Failed'; btn.className = 'deploy-btn error';
     addMsg('ai', '❌ Deploy failed: ' + err.message);
@@ -4568,6 +4581,14 @@ function submitRedeem(e) {
 renderApps();
 observeReveal();
 attachPreviewListeners();
+// Load the app list the admin panel last deployed (apps.json). Before the first deploy the file
+// doesn't exist and the built-in list above is used. Your own unsaved local edits still win in your browser.
+if (!localStorage.getItem('zee_apps')) {
+  fetch('/apps.json', { cache: 'no-cache' })
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(list) { if (Array.isArray(list) && list.length) { APPS = list; renderApps(); } })
+    .catch(function() {});
+}
 </script>
 
 
