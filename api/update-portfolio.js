@@ -1,14 +1,16 @@
-// api/update-portfolio.js — Vercel serverless function (CommonJS)
+// api/update-portfolio.js — Vercel serverless function (ES module: package.json has "type": "module")
 // Commits updated APPS array to GitHub → triggers Vercel auto-deploy
 //
 // Required environment variables (set in Vercel dashboard):
 //   GITHUB_TOKEN   — Personal Access Token (repo scope)
 //   DEPLOY_SECRET  — Any strong string (must match index.html)
 
+import { timingSafeEqual } from 'node:crypto';
+
 const GITHUB_OWNER = process.env.GITHUB_OWNER || 'adelevictor011-glitch';
 const GITHUB_REPO  = process.env.GITHUB_REPO  || 'zee-portfolio';
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-deploy-secret');
@@ -16,13 +18,15 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const secret = req.headers['x-deploy-secret'];
-  if (!secret || secret !== process.env.DEPLOY_SECRET) {
+  const secret = String(req.headers['x-deploy-secret'] || '');
+  const expected = String(process.env.DEPLOY_SECRET || '');
+  const a = Buffer.from(secret), b = Buffer.from(expected);
+  if (!expected || a.length !== b.length || !timingSafeEqual(a, b)) {
     return res.status(401).json({ error: 'Unauthorized — check your DEPLOY_SECRET' });
   }
 
-  const { apps } = req.body;
-  if (!apps || !Array.isArray(apps)) {
+  const { apps } = req.body || {};
+  if (!apps || !Array.isArray(apps) || apps.length > 200) {
     return res.status(400).json({ error: 'Invalid payload — expected { apps: [...] }' });
   }
 
@@ -74,4 +78,4 @@ module.exports = async function handler(req, res) {
     console.error('Deploy error:', err.message);
     return res.status(500).json({ error: err.message });
   }
-};
+}
